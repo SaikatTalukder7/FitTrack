@@ -1,0 +1,195 @@
+/* Auth pages (Login, Signup, Forgot password, Reset password, Verify email).
+   Colours match the home page. Styles are scoped to .ft-auth so the rest of the app is not affected. */
+
+.ft-auth,
+.ft-login-sample {
+  --ft-auth-brand: #0d4b3c;
+  --ft-auth-brand-dark: #082f25;
+  --ft-auth-mint: #eef6f2;
+  --ft-auth-edge: #b5d3c7;
+  --ft-auth-line: #cfdad5;
+  --ft-auth-ink: #111111;
+  --ft-auth-muted: #3d4742;
+  --ft-auth-subtle: #5a6661;
+}
+
+/* Card */
+
+.ft-auth {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2.5rem 0 2rem;
+}
+
+.ft-auth__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  padding: 2.25rem 1.75rem;
+  border: 1px solid var(--ft-auth-line);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 30px 60px -34px rgba(8, 47, 37, 0.45);
+}
+
+@media (min-width: 640px) {
+  .ft-auth__card {
+    padding: 2.75rem 2.5rem;
+  }
+}
+
+.ft-auth__brand {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ft-auth-ink);
+}
+
+.ft-auth__brand span {
+  color: var(--ft-auth-brand);
+}
+
+.ft-auth__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ft-auth__title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ft-auth-ink);
+}
+
+.ft-auth__desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ft-auth-subtle);
+}
+
+/* Form fields */
+
+.ft-auth .ft-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ft-auth-muted);
+}
+
+.ft-auth .ft-input {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ft-auth-edge);
+  border-radius: 14px;
+  background: #ffffff;
+  font-size: 0.95rem;
+  color: var(--ft-auth-ink);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ft-auth .ft-input::placeholder {
+  color: #8a958f;
+}
+
+.ft-auth .ft-input:focus {
+  outline: none;
+  border-color: var(--ft-auth-brand);
+  box-shadow: 0 0 0 4px rgba(13, 75, 60, 0.14);
+}
+
+.ft-auth .ft-input:disabled {
+  background: #f1f5f3;
+  color: var(--ft-auth-subtle);
+}
+
+.ft-auth .ft-input[aria-invalid='true'] {
+  border-color: #b42318;
+}
+
+.ft-auth .ft-field__hint {
+  font-size: 0.8rem;
+  color: var(--ft-auth-subtle);
+}
+
+.ft-auth .ft-field__error {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #b42318;
+}
+
+/* Buttons: green pill, slight zoom on hover */
+
+.ft-auth .ft-btn,
+.ft-login-sample .ft-btn {
+  padding: 0.8rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ft-auth .ft-btn--primary,
+.ft-login-sample .ft-btn--primary {
+  background: var(--ft-auth-brand);
+  border-color: var(--ft-auth-brand);
+  color: #ffffff;
+  box-shadow: 0 14px 28px -16px rgba(13, 75, 60, 0.7);
+}
+
+.ft-auth .ft-btn--primary:hover:not(:disabled),
+.ft-login-sample .ft-btn--primary:hover:not(:disabled) {
+  background: var(--ft-auth-brand-dark);
+  border-color: var(--ft-auth-brand-dark);
+  color: #ffffff;
+  transform: scale(1.02);
+}
+
+.ft-auth .ft-btn--primary:active:not(:disabled),
+.ft-login-sample .ft-btn--primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.ft-auth .ft-btn--primary:disabled,
+.ft-login-sample .ft-btn--primary:disabled {
+  opacity: 0.55;
+}
+
+.ft-login-sample .ft-btn--secondary {
+  background: #ffffff;
+  border: 1px solid var(--ft-auth-brand);
+  color: var(--ft-auth-brand);
+}
+
+.ft-login-sample .ft-btn--secondary:hover:not(:disabled) {
+  background: var(--ft-auth-brand);
+  color: #ffffff;
+  transform: scale(1.02);
+}
+
+/* Text links */
+
+.ft-auth .ft-link {
+  font-weight: 700;
+  color: var(--ft-auth-brand);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ft-auth .ft-link:hover {
+  color: var(--ft-auth-brand-dark);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-auth .ft-btn--primary:hover:not(:disabled),
+  .ft-auth .ft-btn--primary:active:not(:disabled),
+  .ft-login-sample .ft-btn--primary:hover:not(:disabled),
+  .ft-login-sample .ft-btn--primary:active:not(:disabled),
+  .ft-login-sample .ft-btn--secondary:hover:not(:disabled) {
+    transform: none;
+  }
+}

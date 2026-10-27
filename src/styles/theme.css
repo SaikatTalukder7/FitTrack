@@ -1,0 +1,158 @@
+/* FitTrack shared tokens and primitives. Plain CSS, no Tailwind needed. */
+:root {
+  --ft-navy-950: #070b14;
+  --ft-navy-900: #0b1120;
+  --ft-navy-800: #111a2e;
+  --ft-navy-700: #1b2740;
+  --ft-accent: #a3e635;
+  --ft-accent-dark: #65a30d;
+  --ft-accent-soft: #ecfccb;
+  --ft-text: #0f172a;
+  --ft-text-muted: #475569;
+  --ft-text-subtle: #64748b;
+  --ft-border: #cbd5e1;
+  --ft-border-soft: #e2e8f0;
+  --ft-surface: #ffffff;
+  --ft-page: #f1f5f9;
+  --ft-radius: 12px;
+  --ft-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --ft-font: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ft-accent-dark);
+  outline-offset: 2px;
+}
+
+.ft-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ft-card {
+  background: var(--ft-surface);
+  color: var(--ft-text);
+  border: 1px solid var(--ft-border-soft);
+  border-radius: var(--ft-radius);
+  padding: 1.25rem;
+  box-shadow: var(--ft-shadow);
+}
+
+/* Buttons */
+.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.ft-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ft-btn--primary {
+  background: var(--ft-accent);
+  color: var(--ft-navy-900);
+}
+
+.ft-btn--primary:hover:not(:disabled) {
+  background: #bef264;
+}
+
+.ft-btn--secondary {
+  background: #ffffff;
+  color: #1e293b;
+  border-color: var(--ft-border);
+}
+
+.ft-btn--secondary:hover:not(:disabled) {
+  background: #f8fafc;
+}
+
+.ft-btn--outline {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.ft-btn--outline:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ft-btn--full {
+  width: 100%;
+}
+
+/* Form primitives */
+.ft-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.ft-input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--ft-border);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--ft-text);
+}
+
+.ft-input::placeholder {
+  color: #94a3b8;
+}
+
+.ft-input:focus {
+  outline: none;
+  border-color: var(--ft-accent-dark);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.4);
+}
+
+.ft-input:disabled {
+  background: #f1f5f9;
+  color: var(--ft-text-subtle);
+}
+
+.ft-input[aria-invalid='true'] {
+  border-color: #dc2626;
+}
+
+.ft-link {
+  color: #4d7c0f;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ft-link:hover {
+  text-decoration: underline;
+}

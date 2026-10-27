@@ -1,0 +1,22 @@
+/* Loading and "profile unavailable" screens used by the route guards */
+
+.ft-loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  padding: 2rem 1rem;
+}
+
+.ft-loading-screen--full {
+  min-height: 100vh;
+}
+
+.ft-guard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}

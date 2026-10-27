@@ -1,0 +1,28 @@
+.ft-spinner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #3d4742;
+}
+
+.ft-spinner__ring {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #cfdad5;
+  border-top-color: #0d4b3c;
+  border-radius: 9999px;
+  animation: ft-spin 0.8s linear infinite;
+}
+
+@keyframes ft-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-spinner__ring {
+    animation-duration: 2.4s;
+  }
+}

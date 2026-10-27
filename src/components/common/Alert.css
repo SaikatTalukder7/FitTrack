@@ -1,0 +1,35 @@
+.ft-alert {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.ft-alert__title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.ft-alert--error {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.ft-alert--success {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.ft-alert--warning {
+  background: #fffbeb;
+  color: #78350f;
+  border-color: #fde68a;
+}
+
+.ft-alert--info {
+  background: #f0f9ff;
+  color: #075985;
+  border-color: #bae6fd;
+}

@@ -1,0 +1,53 @@
+/* Login page extras. Base auth styles are in components/common/AuthCard.css */
+
+.ft-note {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: var(--ft-auth-mint, #eef6f2);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ft-auth-muted, #3d4742);
+}
+
+.ft-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.ft-auth-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Sample sign-in box (development only), shown under the login card */
+
+.ft-login-sample {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+}
+
+.ft-login-sample .ft-card {
+  padding: 1.75rem;
+  border: 1px solid var(--ft-auth-line, #cfdad5);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 30px 60px -34px rgba(8, 47, 37, 0.45);
+}
+
+.ft-login-sample .ft-sample__title {
+  color: var(--ft-auth-brand, #0d4b3c);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.ft-login-sample .ft-sample__text {
+  color: var(--ft-auth-subtle, #5a6661);
+}
