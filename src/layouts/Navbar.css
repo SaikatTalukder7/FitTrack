@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  width: 100%;
   background: rgba(244, 247, 246, 0.85);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -14,13 +15,14 @@
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
 }
 
+/* Full width: no max-width, so the bar reaches both edges of the screen */
 .ft-navbar__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  max-width: 80rem;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 1.1rem 1.25rem;
 }
 
@@ -137,7 +139,7 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile menu */
+/* Mobile menu: full width, same as the bar above */
 .ft-navbar__mobile {
   display: none;
 }
@@ -146,6 +148,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  width: 100%;
   padding: 0.5rem 1.25rem 1.25rem;
   background: #ffffff;
   border-top: 1px solid rgba(15, 23, 42, 0.06);
@@ -164,6 +167,7 @@
   margin-top: 0.5rem;
 }
 
+/* Tablet and desktop */
 @media (min-width: 768px) {
   .ft-navbar__links {
     display: flex;
@@ -179,6 +183,13 @@
   .ft-navbar__toggle,
   .ft-navbar__mobile {
     display: none;
+  }
+}
+
+/* Large screens: the same side spacing as the hero, so the navbar lines up with the page */
+@media (min-width: 900px) {
+  .ft-navbar__inner {
+    padding: 1.1rem 4rem;
   }
 }
 

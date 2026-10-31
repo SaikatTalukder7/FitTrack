@@ -14,17 +14,19 @@
   --ft-foot-glow-soft: rgba(31, 122, 98, 0.45);
   --ft-foot-accent: #a3e635;
 
+  width: 100%;
   margin-top: auto;
   border-top: 2px solid var(--ft-foot-line);
   background: #ffffff;
   color: var(--ft-foot-muted);
 }
 
+/* Full width: no max-width, so the content reaches both edges of the screen */
 .ft-footer__inner {
   display: grid;
   gap: 2.5rem;
-  max-width: 80rem;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 3rem 1.25rem 2rem;
 }
 
@@ -135,15 +137,15 @@
   border-radius: 4px;
 }
 
-/* Bottom bar */
+/* Bottom bar: full width, same side spacing as the content above */
 
 .ft-footer__bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem;
-  max-width: 80rem;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 1.25rem;
   border-top: 2px solid var(--ft-foot-line);
   font-size: 0.85rem;
@@ -172,7 +174,7 @@
   color: #111111;
 }
 
-/* Desktop layout */
+/* Tablet and desktop layout */
 
 @media (min-width: 768px) {
   .ft-footer__inner {
@@ -182,6 +184,17 @@
 
   .ft-footer__bottom {
     padding: 1.25rem 2.5rem;
+  }
+}
+
+/* Large screens: the same side spacing as the hero */
+@media (min-width: 900px) {
+  .ft-footer__inner {
+    padding: 4rem 4rem 2.5rem;
+  }
+
+  .ft-footer__bottom {
+    padding: 1.25rem 4rem;
   }
 }
 

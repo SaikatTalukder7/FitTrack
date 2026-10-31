@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/theme.css';
 import './Landing.css';
@@ -84,16 +84,53 @@ function ArrowIcon() {
 
 export default function Landing() {
   const location = useLocation();
+  const rootRef = useRef(null);
 
-  // When the URL has a hash (for example /#features), scroll to that section.
+  // Navbar links such as /#features should scroll to that section.
   useEffect(() => {
     if (!location.hash) return;
     const target = document.getElementById(location.hash.slice(1));
     target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [location.key, location.hash]);
 
+  // Scroll animation: each [data-reveal] section fades in when it enters the screen.
+  // Items inside it (.ft-anim) appear one after another.
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const groups = root.querySelectorAll('[data-reveal]');
+    groups.forEach((group) => {
+      group.querySelectorAll('.ft-anim').forEach((el, index) => {
+        el.style.setProperty('--i', index);
+      });
+    });
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      groups.forEach((group) => group.classList.add('is-in'));
+      return;
+    }
+
+    root.classList.add('ft-js');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    groups.forEach((group) => observer.observe(group));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="ft-landing">
+    <div className="ft-landing" ref={rootRef}>
       {/* Hero: fills the screen below the navbar */}
       <section className="ft-hero">
         <div className="ft-hero__main">
@@ -153,8 +190,8 @@ export default function Landing() {
       </section>
 
       {/* Features */}
-      <section id="features" className="ft-section">
-        <div className="ft-section__head">
+      <section id="features" className="ft-section" data-reveal>
+        <div className="ft-section__head ft-anim">
           <p className="ft-eyebrow">Features</p>
           <h2 className="ft-section__title">Secure accounts for everyone</h2>
           <p className="ft-section__lead">
@@ -164,7 +201,7 @@ export default function Landing() {
 
         <div className="ft-features">
           {FEATURES.map((feature, index) => (
-            <article key={feature.title} className="ft-feature">
+            <article key={feature.title} className="ft-feature ft-anim">
               <span className="ft-feature__num">0{index + 1}</span>
               <h3 className="ft-feature__title">{feature.title}</h3>
               <p className="ft-feature__body">{feature.body}</p>
@@ -174,15 +211,15 @@ export default function Landing() {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="ft-section ft-section--tint">
-        <div className="ft-section__head">
+      <section id="how-it-works" className="ft-section ft-section--tint" data-reveal>
+        <div className="ft-section__head ft-anim">
           <p className="ft-eyebrow">How it works</p>
           <h2 className="ft-section__title">Three steps to get started</h2>
         </div>
 
         <ol className="ft-steps">
           {STEPS.map((step, index) => (
-            <li key={step.title} className="ft-step">
+            <li key={step.title} className="ft-step ft-anim">
               <span className="ft-step__num">{index + 1}</span>
               <h3 className="ft-step__title">{step.title}</h3>
               <p className="ft-step__body">{step.body}</p>
@@ -192,12 +229,12 @@ export default function Landing() {
       </section>
 
       {/* Call to action */}
-      <section className="ft-cta">
-        <h2 className="ft-cta__title">Ready to start your fitness journey?</h2>
-        <p className="ft-cta__text">
+      <section className="ft-cta" data-reveal>
+        <h2 className="ft-cta__title ft-anim">Ready to start your fitness journey?</h2>
+        <p className="ft-cta__text ft-anim">
           Create your account in a few minutes and confirm your email to get started.
         </p>
-        <Link to="/signup" className="ft-pill ft-pill--light">
+        <Link to="/signup" className="ft-pill ft-pill--light ft-anim">
           Get started <ArrowIcon />
         </Link>
       </section>
