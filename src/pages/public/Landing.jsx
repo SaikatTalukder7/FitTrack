@@ -1,118 +1,65 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/theme.css';
 import './Landing.css';
 
-const ICON_PROPS = {
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.6,
-  strokeLinecap: 'round',
-  strokeLinejoin: 'round',
-  'aria-hidden': 'true',
-};
-
-const HIGHLIGHTS = [
-  {
-    title: 'Secure sign-up',
-    body: 'Create an account and confirm your email address.',
-    icon: <path d="M4 6h16v12H4zM4 7l8 6 8-6" />,
-  },
-  {
-    title: 'Password recovery',
-    body: 'Reset a forgotten password with a secure email link.',
-    icon: (
-      <>
-        <rect x="5" y="11" width="14" height="10" rx="2" />
-        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-      </>
-    ),
-  },
-  {
-    title: 'Role-based access',
-    body: 'Admins and customers each get their own area.',
-    icon: (
-      <>
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21a8 8 0 0 1 16 0" />
-      </>
-    ),
-  },
-];
+const TAGS = ['Email verification', 'Password recovery', 'Role-based access', 'Show or hide password'];
 
 const FEATURES = [
   {
     title: 'Email verification',
-    body: 'Confirm your email before you start using your account.',
+    body: 'Confirm your email address before you start using your account.',
   },
   {
     title: 'Password recovery',
-    body: 'Forgot your password? Request a secure reset link.',
+    body: 'Forgot your password? Get a secure reset link by email and choose a new one.',
   },
   {
     title: 'Show or hide password',
-    body: 'Check what you type with the eye button on password fields.',
+    body: 'Check what you type with the eye button on every password field.',
   },
   {
     title: 'Role-based access',
-    body: 'Signed-out visitors are sent to log in, and each role sees only its own pages.',
+    body: 'Members and gym staff each see only the pages meant for them.',
   },
 ];
 
-const STEPS = [
-  { title: 'Create your account', body: 'Sign up with your name, email, and password.' },
-  { title: 'Verify your email', body: 'Open the link we send to confirm your email address.' },
-  { title: 'Log in', body: 'Sign in and go to the area that matches your role.' },
-];
-
-function ArrowIcon() {
+function Arrow() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
     </svg>
   );
 }
 
 export default function Landing() {
   const location = useLocation();
-  const rootRef = useRef(null);
 
-  // Navbar links such as /#features should scroll to that section.
+  // Navbar links such as /#features scroll to that section.
   useEffect(() => {
     if (!location.hash) return;
-    const target = document.getElementById(location.hash.slice(1));
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [location.key, location.hash]);
 
-  // Scroll animation: each [data-reveal] section fades in when it enters the screen.
-  // Items inside it (.ft-anim) appear one after another.
+  // Scroll reveal: elements with .ft-reveal-on fade in when they enter the screen.
   useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const groups = root.querySelectorAll('[data-reveal]');
-    groups.forEach((group) => {
-      group.querySelectorAll('.ft-anim').forEach((el, index) => {
-        el.style.setProperty('--i', index);
-      });
-    });
-
+    const items = document.querySelectorAll('.ft-lp .ft-reveal-on');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     if (reduceMotion || !('IntersectionObserver' in window)) {
-      groups.forEach((group) => group.classList.add('is-in'));
-      return;
+      items.forEach((el) => el.classList.add('is-in'));
+      return undefined;
     }
 
-    root.classList.add('ft-js');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -125,118 +72,102 @@ export default function Landing() {
       { threshold: 0.15 }
     );
 
-    groups.forEach((group) => observer.observe(group));
+    items.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="ft-landing" ref={rootRef}>
-      {/* Hero: fills the screen below the navbar */}
-      <section className="ft-hero">
-        <div className="ft-hero__main">
-          <div className="ft-hero__content ft-reveal">
-            <ul className="ft-hero__dots" aria-hidden="true">
-              <li />
-              <li />
-              <li />
-              <li />
-            </ul>
-
-            <p className="ft-hero__kicker">Smart gym management</p>
-            <h1 className="ft-hero__title">FITTRACK</h1>
-            <p className="ft-hero__text">
-              Secure sign-up, login, and password recovery for FitTrack members and staff. Start with a
-              verified account.
+    <div className="ft-lp">
+      {/* Hero */}
+      <section className="ft-lp-hero">
+        <div className="ft-lp-hero__grid">
+          <div className="ft-lp-hero__content ft-reveal-on">
+            <p className="ft-lp-kicker">Gym management and member accounts</p>
+            <h1 className="ft-lp-hero__title">
+              Push Your <span>Limits</span> with FitTrack
+            </h1>
+            <p className="ft-lp-hero__text">
+              Secure member accounts from sign-up to log in, with password recovery and role-based access, so you
+              can focus on training.
             </p>
 
-            <div className="ft-hero__actions">
-              <Link to="/signup" className="ft-pill">
-                Get started <ArrowIcon />
+            <div className="ft-lp-actions">
+              <Link to="/signup" className="ft-lp-btn ft-lp-btn--primary">
+                Join now <Arrow />
               </Link>
-              <Link to="/login" className="ft-text-link">
+              <Link to="/login" className="ft-lp-btn ft-lp-btn--ghost">
                 Log in
               </Link>
             </div>
+
+            <ul className="ft-lp-chips">
+              {TAGS.map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+
+            <p className="ft-lp-secure">
+              <LockIcon /> Your data is protected by sign-in and access rules.
+            </p>
           </div>
 
-          <div className="ft-hero__visual ft-reveal ft-reveal--delay" aria-hidden="true">
-            <svg className="ft-hero__art" viewBox="0 0 480 440">
-              <circle className="ft-art__bg" cx="240" cy="220" r="200" />
-              <circle className="ft-art__ring" cx="240" cy="220" r="150" />
-              <g transform="rotate(-20 240 220)">
-                <rect className="ft-art__bar" x="60" y="208" width="360" height="24" rx="12" />
-                <rect className="ft-art__plate" x="84" y="150" width="40" height="140" rx="14" />
-                <rect className="ft-art__plate ft-art__plate--inner" x="134" y="176" width="26" height="88" rx="9" />
-                <rect className="ft-art__plate ft-art__plate--inner" x="320" y="176" width="26" height="88" rx="9" />
-                <rect className="ft-art__plate" x="356" y="150" width="40" height="140" rx="14" />
-              </g>
-            </svg>
+          <div className="ft-lp-hero__art ft-reveal-on" style={{ '--d': '0.2s' }}>
+            <img src="/images/hero-athlete.webp" alt="" className="ft-lp-hero__img" />
           </div>
         </div>
+      </section>
 
-        <div className="ft-hero__features">
-          {HIGHLIGHTS.map((item) => (
-            <div key={item.title} className="ft-highlight">
-              <svg className="ft-highlight__icon" {...ICON_PROPS}>
-                {item.icon}
-              </svg>
-              <div>
-                <h2 className="ft-highlight__title">{item.title}</h2>
-                <p className="ft-highlight__body">{item.body}</p>
-              </div>
-            </div>
-          ))}
+      {/* Photo banner */}
+      <section className="ft-lp-banner">
+        <div className="ft-lp-banner__inner ft-reveal-on">
+          <p className="ft-lp-kicker">One account, one secure place</p>
+          <h2 className="ft-lp-banner__title">Built for members and gym staff alike</h2>
+          <p className="ft-lp-banner__text">
+            Sign in once and FitTrack takes you to the area that matches your role, with every page protected from
+            visitors who are not signed in.
+          </p>
+          <div className="ft-lp-actions">
+            <Link to="/how-it-works" className="ft-lp-btn ft-lp-btn--ghost">
+              See how it works
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Features */}
-      <section id="features" className="ft-section" data-reveal>
-        <div className="ft-section__head ft-anim">
-          <p className="ft-eyebrow">Features</p>
-          <h2 className="ft-section__title">Secure accounts for everyone</h2>
-          <p className="ft-section__lead">
-            FitTrack keeps account access simple and secure for every user.
-          </p>
-        </div>
+      <section id="features" className="ft-lp-section">
+        <div className="ft-lp-section__inner">
+          <div className="ft-lp-head ft-reveal-on">
+            <p className="ft-lp-eyebrow">Features</p>
+            <h2 className="ft-lp-title">Secure accounts for everyone</h2>
+            <p className="ft-lp-lead">Account access that is easy to use and careful with your information.</p>
+          </div>
 
-        <div className="ft-features">
-          {FEATURES.map((feature, index) => (
-            <article key={feature.title} className="ft-feature ft-anim">
-              <span className="ft-feature__num">0{index + 1}</span>
-              <h3 className="ft-feature__title">{feature.title}</h3>
-              <p className="ft-feature__body">{feature.body}</p>
-            </article>
-          ))}
+          <div className="ft-lp-grid">
+            {FEATURES.map((feature, index) => (
+              <div key={feature.title} className="ft-lp-cell ft-reveal-on" style={{ '--d': `${index * 0.08}s` }}>
+                <article className="ft-lp-card">
+                  <span className="ft-lp-card__num">0{index + 1}</span>
+                  <h3 className="ft-lp-card__title">{feature.title}</h3>
+                  <p className="ft-lp-card__body">{feature.body}</p>
+                </article>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
-
-      {/* How it works */}
-      <section id="how-it-works" className="ft-section ft-section--tint" data-reveal>
-        <div className="ft-section__head ft-anim">
-          <p className="ft-eyebrow">How it works</p>
-          <h2 className="ft-section__title">Three steps to get started</h2>
-        </div>
-
-        <ol className="ft-steps">
-          {STEPS.map((step, index) => (
-            <li key={step.title} className="ft-step ft-anim">
-              <span className="ft-step__num">{index + 1}</span>
-              <h3 className="ft-step__title">{step.title}</h3>
-              <p className="ft-step__body">{step.body}</p>
-            </li>
-          ))}
-        </ol>
       </section>
 
       {/* Call to action */}
-      <section className="ft-cta" data-reveal>
-        <h2 className="ft-cta__title ft-anim">Ready to start your fitness journey?</h2>
-        <p className="ft-cta__text ft-anim">
-          Create your account in a few minutes and confirm your email to get started.
-        </p>
-        <Link to="/signup" className="ft-pill ft-pill--light ft-anim">
-          Get started <ArrowIcon />
-        </Link>
+      <section className="ft-lp-cta">
+        <div className="ft-reveal-on">
+          <h2 className="ft-lp-cta__title">Ready to start your fitness journey?</h2>
+          <p className="ft-lp-cta__text">Create your account in a few minutes and confirm your email to get started.</p>
+          <div className="ft-lp-actions ft-lp-actions--center">
+            <Link to="/signup" className="ft-lp-btn ft-lp-btn--primary">
+              Join now <Arrow />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

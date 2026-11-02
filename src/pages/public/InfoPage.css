@@ -1,0 +1,290 @@
+.ft-info {
+  margin: 0 -1.25rem;
+  color: #161616;
+}
+
+.ft-info section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.ft-info-wrap {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Header band */
+.ft-info-hero {
+  padding: 3.5rem 1.25rem;
+  background: linear-gradient(180deg, #071f27 0%, #05161c 100%);
+  color: #eaf8fc;
+}
+
+.ft-info-eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #22d3ee;
+}
+
+.ft-info-title {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.ft-info-lead {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #9ab5bd;
+}
+
+/* Sections */
+.ft-info-section {
+  padding: 4rem 1.25rem;
+  background: #f4f7f6;
+}
+
+.ft-info-section--white {
+  background: #ffffff;
+}
+
+.ft-info-h2 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Cards */
+.ft-info-card {
+  padding: 1.6rem;
+  border: 1px solid #d3e3dd;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.ft-info-section--white .ft-info-card {
+  background: #f4f7f6;
+}
+
+.ft-info-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.ft-info-card__body {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #5b6661;
+}
+
+.ft-info-points {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ft-info-points li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.92rem;
+  color: #26302b;
+}
+
+.ft-info-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0891b2;
+}
+
+.ft-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Timeline (How it works) */
+.ft-timeline {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.ft-timeline__item {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.ft-timeline__num {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: #05161c;
+  color: #22d3ee;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+/* FAQ accordion */
+.ft-faq {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.ft-faq-item {
+  border-bottom: 1px solid #d3e3dd;
+}
+
+.ft-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem 0;
+  border: 0;
+  background: none;
+  color: #161616;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ft-faq-q:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.ft-faq-icon {
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #0891b2;
+  transition: transform 0.25s ease;
+}
+
+.ft-faq-item.is-open .ft-faq-icon {
+  transform: rotate(45deg);
+}
+
+.ft-faq-a p {
+  margin: 0;
+  padding: 0 0 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #5b6661;
+}
+
+/* Call to action */
+.ft-info-cta {
+  padding: 4.5rem 1.25rem;
+  background: #05161c;
+  color: #eaf8fc;
+  text-align: center;
+}
+
+.ft-info-cta h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ft-info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.ft-info-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.ft-info-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ft-info-btn:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+.ft-info-btn--primary {
+  background: #22d3ee;
+  color: #04202a;
+}
+
+.ft-info-btn--primary:hover {
+  background: #67e8f9;
+}
+
+.ft-info-btn--ghost {
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  color: #eaf8fc;
+}
+
+.ft-info-btn--ghost:hover {
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+
+/* Desktop */
+@media (min-width: 640px) {
+  .ft-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .ft-info-hero {
+    padding: 5rem 4rem;
+  }
+
+  .ft-info-section {
+    padding: 5rem 4rem;
+  }
+
+  .ft-info-cta {
+    padding: 6rem 4rem;
+  }
+
+  .ft-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

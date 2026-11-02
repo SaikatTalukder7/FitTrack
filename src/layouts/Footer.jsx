@@ -8,14 +8,15 @@ const COLUMNS = [
     title: 'Product',
     links: [
       { label: 'Features', to: '/#features' },
-      { label: 'How it works', to: '/#how-it-works' },
-      { label: 'Create account', to: '/signup' },
+      { label: 'How it works', to: '/how-it-works' },
+      { label: 'FAQ', to: '/faq' },
     ],
   },
   {
     title: 'Account',
     links: [
       { label: 'Log in', to: '/login' },
+      { label: 'Create account', to: '/signup' },
       { label: 'Forgot password', to: '/forgot-password' },
     ],
   },
@@ -29,7 +30,6 @@ export default function Footer({ compact = false }) {
       <footer className="ft-footer ft-footer--compact">
         <div className="ft-footer__bottom">
           <p>© {YEAR} FitTrack. All rights reserved.</p>
-          <p>Train with a plan. Track every step.</p>
         </div>
       </footer>
     );
@@ -42,9 +42,7 @@ export default function Footer({ compact = false }) {
           <Link to="/" className="ft-logo">
             fittrack<span>.</span>
           </Link>
-          <p>
-            Smart gym management and personalized workout planning, for gym owners and the members who train with them.
-          </p>
+          <p>Smart gym management and personalized workout planning, for gym owners and the members who train with them.</p>
         </div>
 
         <nav aria-label="Footer navigation" className="ft-footer__cols">
@@ -65,7 +63,6 @@ export default function Footer({ compact = false }) {
 
       <div className="ft-footer__bottom">
         <p>© {YEAR} FitTrack. All rights reserved.</p>
-        <p>Train with a plan. Track every step.</p>
       </div>
     </footer>
   );

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove the browser's default page margin, which shows as a white border around the app */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 @layer base {
   body {
     @apply bg-slate-100 font-sans text-slate-900 antialiased;

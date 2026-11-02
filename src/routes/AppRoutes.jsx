@@ -13,6 +13,8 @@ import { ROLES } from '../utils/constants.js';
 
 const NotFound = lazy(() => import('../pages/NotFound.jsx'));
 const Landing = lazy(() => import('../pages/public/Landing.jsx'));
+const HowItWorks = lazy(() => import('../pages/public/HowItWorks.jsx'));
+const Faq = lazy(() => import('../pages/public/Faq.jsx'));
 const Login = lazy(() => import('../pages/public/Login.jsx'));
 const Signup = lazy(() => import('../pages/public/Signup.jsx'));
 const ForgotPassword = lazy(() => import('../pages/public/ForgotPassword.jsx'));
@@ -33,6 +35,8 @@ export default function AppRoutes() {
         {/* Public pages (with Navbar and Footer) */}
         <Route element={<PublicLayout />}>
           <Route index element={<Landing />} />
+          <Route path="how-it-works" element={<HowItWorks />} />
+          <Route path="faq" element={<Faq />} />
 
           <Route element={<GuestRoute />}>
             <Route path="login" element={<Login />} />

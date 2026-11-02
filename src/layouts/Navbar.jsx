@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const SECTION_LINKS = [
-  { to: '/#features', hash: '#features', label: 'Features' },
-  { to: '/#how-it-works', hash: '#how-it-works', label: 'How it works' },
+  { to: '/#features', label: 'Features', hash: '#features' },
+  { to: '/how-it-works', label: 'How it works', path: '/how-it-works' },
+  { to: '/faq', label: 'FAQ', path: '/faq' },
 ];
 
 export default function Navbar() {
@@ -27,6 +28,11 @@ export default function Navbar() {
   const onHomePage = location.pathname === '/';
   const isHomeActive = onHomePage && !location.hash;
 
+  const isItemActive = (item) => {
+    if (item.hash) return onHomePage && location.hash === item.hash;
+    return location.pathname === item.path;
+  };
+
   function handleHomeClick() {
     setOpen(false);
     if (onHomePage) {
@@ -48,11 +54,7 @@ export default function Navbar() {
             Home
           </Link>
           {SECTION_LINKS.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={linkClass(onHomePage && location.hash === item.hash)}
-            >
+            <Link key={item.to} to={item.to} className={linkClass(isItemActive(item))}>
               {item.label}
             </Link>
           ))}
@@ -86,11 +88,7 @@ export default function Navbar() {
           Home
         </Link>
         {SECTION_LINKS.map((item) => (
-          <Link
-            key={item.to}
-            to={item.to}
-            className={linkClass(onHomePage && location.hash === item.hash)}
-          >
+          <Link key={item.to} to={item.to} className={linkClass(isItemActive(item))}>
             {item.label}
           </Link>
         ))}
