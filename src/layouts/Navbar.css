@@ -152,6 +152,7 @@
   border-radius: 12px;
   background: rgba(34, 211, 238, 0.06);
   cursor: pointer;
+  color: #ffffff;
 }
 
 .ft-navbar__toggle:focus-visible {
@@ -164,8 +165,19 @@
   width: 1.125rem;
   height: 2px;
   border-radius: 2px;
-  background: var(--ft-text);
+  background: #ffffff;
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hamburger 3 line shobsomoy white (onno CSS override korle-o) */
+.ft-navbar__toggle .ft-navbar__bar {
+  background-color: #ffffff !important;
+}
+
+/* Jodi line er jaygay icon (svg) thake */
+.ft-navbar__toggle svg {
+  color: #ffffff;
+  stroke: currentColor;
 }
 
 .ft-navbar__toggle[aria-expanded='true'] .ft-navbar__bar:nth-child(1) {
