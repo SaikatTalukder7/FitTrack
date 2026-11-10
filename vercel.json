@@ -1,0 +1,9 @@
+
+{
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "https://fittrack-dtpu.onrender.com/api"
+    }
+  ]
+}
