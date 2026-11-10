@@ -1,0 +1,331 @@
+/* My Routine page. Same palette and card style as the customer dashboard. */
+
+.mr-page {
+  --mr-brand: var(--ft-navy-700);
+  --mr-brand-dark: var(--ft-navy-800);
+  --mr-brand-mid: var(--mr-brand);
+  --mr-mint: var(--ft-page);
+  --mr-mint-deep: var(--ft-border-soft);
+  --mr-ink: var(--ft-text);
+  --mr-muted: var(--ft-text-muted);
+  --mr-subtle: var(--ft-text-muted);
+  --mr-line: var(--ft-border);
+  --mr-line-soft: var(--ft-border);
+  --mr-edge: var(--ft-border);
+  --mr-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
+  --mr-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  color: var(--mr-ink);
+}
+
+.mr-page a,
+.mr-page button {
+  cursor: pointer;
+}
+
+/* Header */
+
+.mr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mr-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--mr-ink);
+}
+
+.mr-sub {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  color: var(--mr-subtle);
+}
+
+.mr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Buttons */
+
+.mr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--mr-ease), color var(--mr-ease), border-color var(--mr-ease), transform var(--mr-ease), box-shadow var(--mr-ease);
+}
+
+.mr-btn:hover {
+  transform: scale(1.04);
+}
+
+.mr-btn:active {
+  transform: scale(0.98);
+}
+
+.mr-btn--solid {
+  background: var(--mr-brand);
+  border-color: var(--mr-brand);
+  color: var(--ft-surface);
+  box-shadow: 0 12px 24px -16px rgba(27, 39, 64, 0.8);
+}
+
+.mr-btn--solid:hover {
+  background: var(--mr-brand-dark);
+  border-color: var(--mr-brand-dark);
+}
+
+.mr-btn--outline {
+  background: var(--ft-surface);
+  border-color: var(--mr-brand);
+  color: var(--mr-brand);
+}
+
+.mr-btn--outline:hover {
+  background: var(--mr-brand);
+  color: var(--ft-surface);
+}
+
+/* Cards */
+
+.mr-card {
+  padding: 1.5rem;
+  border: 1px solid var(--mr-line);
+  border-radius: 22px;
+  background: var(--mr-card-bg);
+  box-shadow: 0 14px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.mr-card--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.mr-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--mr-ink);
+}
+
+.mr-muted {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--mr-subtle);
+}
+
+.mr-narrow {
+  max-width: 28rem;
+}
+
+.mr-card .mr-btn {
+  margin-top: 0.6rem;
+}
+
+/* Plan overview */
+
+.mr-plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mr-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mr-brand-mid);
+}
+
+.mr-plan__name {
+  margin: 0.45rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--mr-ink);
+}
+
+.mr-tag {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: var(--mr-mint-deep);
+  color: var(--mr-brand);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Stat tiles */
+
+.mr-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.mr-stat {
+  padding: 1rem;
+  border: 1px solid var(--mr-edge);
+  border-radius: 16px;
+  background: var(--mr-mint);
+  transition: transform var(--mr-ease), border-color var(--mr-ease), background-color var(--mr-ease);
+}
+
+.mr-stat:hover {
+  transform: scale(1.03);
+  border-color: var(--mr-brand);
+  background: var(--mr-mint-deep);
+}
+
+.mr-stat__label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--mr-subtle);
+}
+
+.mr-stat__value {
+  margin: 0.35rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--mr-ink);
+}
+
+.mr-stat__value--live {
+  color: var(--mr-brand);
+  font-size: 1.15rem;
+}
+
+/* Day sections */
+
+.mr-day__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mr-pill {
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  background: var(--mr-mint-deep);
+  color: var(--mr-brand);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Exercise rows */
+
+.mr-ex {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid var(--mr-line-soft);
+  border-radius: 16px;
+  background: var(--ft-surface);
+  transition: transform var(--mr-ease), border-color var(--mr-ease), background-color var(--mr-ease);
+}
+
+.mr-ex:hover {
+  transform: translateX(4px);
+  border-color: var(--mr-brand);
+  background: var(--ft-page);
+}
+
+.mr-ex__num {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 12px;
+  background: var(--mr-brand);
+  color: var(--ft-surface);
+  font-weight: 800;
+}
+
+.mr-ex__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.mr-ex__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mr-ink);
+}
+
+.mr-ex__meta {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: var(--mr-subtle);
+}
+
+.mr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.mr-chip {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--mr-edge);
+  border-radius: 9999px;
+  background: var(--mr-mint);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mr-brand);
+}
+
+/* Responsive */
+
+@media (min-width: 640px) {
+  .mr-stats {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mr-btn:hover,
+  .mr-btn:active,
+  .mr-stat:hover,
+  .mr-ex:hover {
+    transform: none;
+  }
+}

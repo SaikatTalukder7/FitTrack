@@ -1,0 +1,305 @@
+/* Profile page. Same palette and card style as the other customer pages. */
+
+.pf-page {
+  --pf-brand: var(--ft-navy-700);
+  --pf-brand-dark: var(--ft-navy-800);
+  --pf-brand-mid: var(--pf-brand);
+  --pf-mint: var(--ft-page);
+  --pf-mint-deep: var(--ft-border-soft);
+  --pf-ink: var(--ft-text);
+  --pf-muted: var(--ft-text-muted);
+  --pf-subtle: var(--ft-text-muted);
+  --pf-line: var(--ft-border);
+  --pf-edge: var(--ft-border);
+  --pf-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
+  --pf-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+  color: var(--pf-ink);
+}
+
+.pf-page button {
+  cursor: pointer;
+}
+
+.pf-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Header */
+
+.pf-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pf-brand-mid);
+}
+
+.pf-title {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--pf-ink);
+}
+
+.pf-sub {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--pf-subtle);
+}
+
+/* Cards */
+
+.pf-card {
+  padding: 1.5rem;
+  border: 1px solid var(--pf-line);
+  border-radius: 22px;
+  background: var(--pf-card-bg);
+  box-shadow: 0 14px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.pf-card__title {
+  margin: 0 0 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--pf-ink);
+}
+
+/* Identity and photo */
+
+.pf-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pf-avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--pf-brand-mid), var(--pf-brand-dark));
+  color: var(--ft-surface);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 24px -16px rgba(27, 39, 64, 0.9);
+}
+
+.pf-avatar--photo {
+  background: var(--pf-mint-deep);
+}
+
+.pf-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pf-identity__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.pf-identity__name {
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.2rem;
+  font-weight: 800;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--pf-ink);
+}
+
+.pf-identity__email {
+  margin: 0.2rem 0 0;
+  overflow: hidden;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--pf-subtle);
+}
+
+.pf-tag {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--pf-mint-deep);
+  color: var(--pf-brand);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pf-photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.pf-hint {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: var(--pf-subtle);
+}
+
+.pf-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Photo buttons */
+
+.pf-btn {
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--pf-brand);
+  border-radius: 9999px;
+  background: var(--pf-brand);
+  color: var(--ft-surface);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 12px 24px -16px rgba(27, 39, 64, 0.8);
+  transition: background-color var(--pf-ease), border-color var(--pf-ease), color var(--pf-ease), transform var(--pf-ease);
+}
+
+.pf-btn:hover:not(:disabled) {
+  background: var(--pf-brand-dark);
+  border-color: var(--pf-brand-dark);
+  transform: scale(1.04);
+}
+
+.pf-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.pf-btn--outline {
+  background: var(--ft-surface);
+  color: var(--pf-brand);
+  box-shadow: none;
+}
+
+.pf-btn--outline:hover:not(:disabled) {
+  background: var(--pf-brand);
+  color: var(--ft-surface);
+}
+
+.pf-btn--danger {
+  background: var(--ft-surface);
+  border-color: var(--ft-danger);
+  color: var(--ft-danger);
+  box-shadow: none;
+}
+
+.pf-btn--danger:hover:not(:disabled) {
+  background: var(--ft-danger);
+  border-color: var(--ft-danger);
+  color: var(--ft-surface);
+}
+
+/* Form */
+
+.pf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.pf-form .ft-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--pf-muted);
+}
+
+.pf-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--pf-edge);
+  border-radius: 14px;
+  background: var(--ft-surface);
+  color: var(--pf-ink);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color var(--pf-ease), box-shadow var(--pf-ease);
+}
+
+.pf-input:focus {
+  outline: none;
+  border-color: var(--pf-brand);
+  box-shadow: 0 0 0 4px rgba(27, 39, 64, 0.14);
+}
+
+.pf-input:disabled {
+  background: #f1f5f9;
+  color: var(--pf-subtle);
+}
+
+.pf-input--readonly {
+  background: var(--pf-mint);
+  border-style: dashed;
+  color: var(--pf-muted);
+  cursor: not-allowed;
+}
+
+.pf-page .ft-field__hint {
+  color: var(--pf-subtle);
+  font-size: 0.8rem;
+}
+
+.pf-page .ft-field__error {
+  color: var(--ft-danger);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Role */
+
+.pf-role {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--pf-edge);
+  border-radius: 14px;
+  background: var(--pf-mint);
+}
+
+.pf-role__label {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--pf-muted);
+}
+
+.pf-role__text {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--pf-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-btn:hover:not(:disabled),
+  .pf-btn:active:not(:disabled) {
+    transform: none;
+  }
+}

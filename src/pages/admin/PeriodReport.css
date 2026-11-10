@@ -1,0 +1,180 @@
+/* Shared styles for period reports (Attendance and Statistics) */
+
+.pr-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pr-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  width: fit-content;
+  padding: 0.3rem;
+  border-radius: 9999px;
+  background: var(--ap-mint);
+}
+
+.pr-tab {
+  padding: 0.5rem 1.1rem;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--ap-brand);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.pr-tab:hover {
+  background: var(--ap-brand-soft);
+}
+
+.pr-tab.is-active {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+}
+
+.pr-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pr-nav__btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--ap-brand);
+  border-radius: 9999px;
+  background: var(--ft-surface);
+  color: var(--ap-brand);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pr-nav__btn:hover {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+  transform: scale(1.06);
+}
+
+.pr-date {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ap-edge);
+  border-radius: 12px;
+  background: var(--ft-surface);
+  color: var(--ap-ink);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.pr-date:focus {
+  outline: none;
+  border-color: var(--ap-brand);
+  box-shadow: 0 0 0 3px rgba(27, 39, 64, 0.15);
+}
+
+.pr-today {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ap-brand);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--ap-brand);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pr-today:hover {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+  transform: scale(1.04);
+}
+
+.pr-range {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ap-brand);
+}
+
+/* Column chart */
+
+.pr-chart {
+  overflow-x: auto;
+}
+
+.pr-chart__cols {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  box-sizing: border-box;
+  height: 13rem;
+  min-width: 100%;
+  padding: 1rem 0.75rem 0.5rem;
+  border-radius: 16px;
+  background: var(--ap-mint);
+}
+
+.pr-chart--dense .pr-chart__cols {
+  gap: 0.2rem;
+  min-width: 40rem;
+}
+
+.pr-col {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+}
+
+.pr-col__track {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+}
+
+.pr-col__bar {
+  display: block;
+  width: 70%;
+  max-width: 2.2rem;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, #64748b 0%, var(--ap-brand) 100%);
+  transition: height 0.4s ease, background-color 0.2s ease;
+}
+
+.pr-col:hover .pr-col__bar {
+  background: var(--ap-brand-dark);
+}
+
+.pr-col__label {
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--ap-subtle);
+  white-space: nowrap;
+}
+
+.pr-chart--dense .pr-col__label {
+  font-size: 0.62rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-col__bar,
+  .pr-nav__btn:hover,
+  .pr-today:hover {
+    transition: none;
+    transform: none;
+  }
+}

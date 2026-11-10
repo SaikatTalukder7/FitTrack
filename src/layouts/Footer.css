@@ -1,0 +1,134 @@
+.ft-footer {
+  --f-bg: #05161c;
+  --f-bg-2: #071f27;
+  --f-cyan: #22d3ee;
+  --f-muted: #9ab5bd;
+  --f-line: rgba(34, 211, 238, 0.16);
+
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  color: var(--f-muted);
+  background: linear-gradient(180deg, var(--f-bg-2) 0%, var(--f-bg) 100%);
+  border-top: 1px solid var(--f-line);
+}
+
+.ft-footer__inner {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 1rem;
+}
+
+.ft-footer .ft-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ft-surface);
+}
+
+.ft-footer .ft-logo span {
+  color: var(--f-cyan);
+}
+
+.ft-footer__brand p {
+  max-width: 22rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--f-muted);
+}
+
+.ft-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.ft-footer__heading {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--f-cyan);
+}
+
+.ft-footer__list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ft-footer__list a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cfe6ec;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ft-footer__list a:hover,
+.ft-footer__list a:focus-visible {
+  color: var(--f-cyan);
+}
+
+.ft-footer__list a:focus-visible {
+  outline: 2px solid var(--f-cyan);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.ft-footer__bottom {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--f-line);
+  font-size: 0.85rem;
+  color: var(--f-muted);
+}
+
+.ft-footer__bottom p {
+  margin: 0;
+}
+
+/* Compact footer for the signed-in Admin and Customer area */
+.ft-footer--compact {
+  background: var(--ft-surface);
+  color: var(--ft-text);
+}
+
+.ft-footer--compact .ft-footer__bottom {
+  border-top: 0;
+  padding: 1rem 2rem;
+  color: var(--ft-text);
+}
+
+/* Tablet and desktop */
+@media (min-width: 768px) {
+  .ft-footer__inner {
+    grid-template-columns: 1.4fr 2fr;
+  }
+
+  .ft-footer__bottom {
+    padding: 0.65rem 1rem;
+  }
+}
+
+/* Large screens: same side spacing as the hero */
+@media (min-width: 900px) {
+  .ft-footer__inner {
+    max-width: none;
+    padding: 1.5rem 4rem 1.25rem;
+  }
+
+  .ft-footer__bottom {
+    max-width: none;
+    padding: 0.65rem 1rem;
+  }
+}

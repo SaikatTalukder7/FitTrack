@@ -1,0 +1,8 @@
+/* Customer detail page */
+
+.cd-account {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ap-subtle);
+  word-break: break-all;
+}

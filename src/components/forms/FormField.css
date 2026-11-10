@@ -1,0 +1,16 @@
+.ft-field {
+  display: block;
+}
+
+.ft-field__hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.ft-field__error {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #b91c1c;
+}

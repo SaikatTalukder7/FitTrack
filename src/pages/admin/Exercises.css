@@ -1,0 +1,180 @@
+/* Exercise library page */
+
+.ex-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ex-form__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ap-brand);
+}
+
+.ex-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.ex-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ap-muted);
+}
+
+.ex-field--wide {
+  grid-column: 1 / -1;
+}
+
+.ex-select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d4b3c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.ex-textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.ex-fieldset {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--ap-edge);
+  border-radius: 16px;
+  background: var(--ap-mint);
+}
+
+.ex-legend {
+  padding: 0 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ap-brand);
+}
+
+.ex-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ap-subtle);
+}
+
+.ex-checks {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.ex-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--ap-line);
+  border-radius: 12px;
+  background: var(--ft-surface);
+  font-size: 0.9rem;
+  color: var(--ap-ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.ex-check:hover {
+  border-color: var(--ap-brand);
+}
+
+.ex-check input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--ap-brand);
+}
+
+.ex-status {
+  color: var(--ap-subtle);
+  text-transform: capitalize;
+}
+
+.ex-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ex-name {
+  font-weight: 700;
+}
+
+.ex-tag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.ex-tag--on {
+  background: var(--ap-brand-soft);
+  color: var(--ap-brand);
+}
+
+.ex-tag--off {
+  background: var(--ft-border-soft);
+  color: var(--ap-muted);
+}
+
+.ex-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Small table buttons */
+
+.ex-btn {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--ap-brand);
+  border-radius: 9999px;
+  background: var(--ft-surface);
+  color: var(--ap-brand);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.ex-btn:hover {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+  transform: scale(1.04);
+}
+
+.ex-btn:active {
+  transform: scale(0.98);
+}
+
+@media (min-width: 640px) {
+  .ex-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ex-checks {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-btn:hover,
+  .ex-btn:active {
+    transform: none;
+  }
+}

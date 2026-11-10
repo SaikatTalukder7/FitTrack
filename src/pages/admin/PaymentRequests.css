@@ -1,0 +1,218 @@
+/* Payment requests page. Uses the shared admin palette from AdminPage.css. */
+
+.pr-setting {
+  display: grid;
+  gap: 1rem;
+  align-items: end;
+}
+
+.pr-current {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ap-subtle);
+}
+
+.pr-strong {
+  font-weight: 700;
+}
+
+.pr-mono {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.pr-muted {
+  font-size: 0.82rem;
+  color: var(--ap-subtle);
+}
+
+.pr-reason {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ft-danger);
+}
+
+/* Filter tabs */
+
+.pr-filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  width: fit-content;
+  padding: 0.3rem;
+  border-radius: 9999px;
+  background: var(--ap-mint);
+}
+
+.pr-filter {
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--ap-brand);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.pr-filter:hover {
+  background: var(--ap-brand-soft);
+}
+
+.pr-filter.is-active {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+}
+
+/* Status tags */
+
+.pr-tag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pr-tag--pending {
+  background: var(--ft-warning-soft);
+  color: var(--ft-warning);
+}
+
+.pr-tag--approved {
+  background: var(--ap-brand-soft);
+  color: var(--ap-brand);
+}
+
+.pr-tag--rejected {
+  background: #fde8e6;
+  color: var(--ft-danger);
+}
+
+/* Buttons */
+
+.pr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pr-btn,
+.pr-danger {
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pr-btn {
+  border: 1px solid var(--ap-brand);
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+}
+
+.pr-btn:hover:not(:disabled) {
+  background: var(--ap-brand-dark);
+  transform: scale(1.04);
+}
+
+.pr-btn--outline {
+  background: var(--ft-surface);
+  color: var(--ap-brand);
+}
+
+.pr-btn--outline:hover:not(:disabled) {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+}
+
+.pr-danger {
+  border: 1px solid var(--ft-danger);
+  background: var(--ft-surface);
+  color: var(--ft-danger);
+}
+
+.pr-danger:hover:not(:disabled) {
+  background: var(--ft-danger);
+  color: var(--ft-surface);
+  transform: scale(1.04);
+}
+
+.pr-danger--solid {
+  background: var(--ft-danger);
+  color: var(--ft-surface);
+}
+
+.pr-danger--solid:hover:not(:disabled) {
+  background: #8f1b12;
+}
+
+.pr-btn:disabled,
+.pr-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Reject panel */
+
+.pr-reject-row td {
+  padding: 0.5rem 0.75rem 1rem;
+  border-bottom: 1px solid var(--ap-line);
+}
+
+.pr-reject {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #f1c2bd;
+  border-radius: 14px;
+  background: var(--ft-danger-soft);
+}
+
+.pr-reject__label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ap-muted);
+}
+
+.pr-reject textarea {
+  width: 100%;
+  min-height: 4.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--ap-edge);
+  border-radius: 12px;
+  background: var(--ft-surface);
+  color: var(--ap-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.pr-reject textarea:focus {
+  outline: none;
+  border-color: var(--ap-brand);
+  box-shadow: 0 0 0 3px rgba(27, 39, 64, 0.15);
+}
+
+/* Layout */
+
+@media (min-width: 640px) {
+  .pr-setting {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-btn:hover:not(:disabled),
+  .pr-danger:hover:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,46 @@
+.ft-public {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--ft-page);
+  color: var(--ft-text);
+}
+
+/* Form pages (login, signup and so on) keep a side gutter */
+.ft-public__main {
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+}
+
+/* Landing and info pages go edge to edge: no gutter, no bottom gap */
+.ft-public__main:has(> .ft-lp),
+.ft-public__main:has(> .ft-info) {
+  padding: 0;
+}
+
+.ft-public__main > .ft-lp,
+.ft-public__main > .ft-info {
+  margin: 0;
+}
+
+.ft-public:has(> .ft-public__main > .ft-lp) {
+  background: #05161c;
+}
+
+.ft-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--ft-surface);
+  color: var(--ft-text);
+  font-weight: 600;
+}
+
+.ft-skip-link:focus {
+  left: 1rem;
+}

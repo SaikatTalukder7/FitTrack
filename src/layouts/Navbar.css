@@ -1,0 +1,270 @@
+/* ---------- Shared variables: shob page-e ekhanei define ---------- */
+:root {
+  --ft-nav-bg: rgba(5, 22, 28, 0.92);
+  --ft-nav-panel: #071f27;
+  --ft-text: #eaf8fc;
+  --ft-muted: #9ab5bd;
+}
+
+/* ---------- Dark glass navbar for public pages ---------- */
+.ft-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  /* Shobsomoy ek-i background, jate pichoner content-er upor nirbhor na kore */
+  background: var(--ft-nav-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scroll korle shudhu border ar shadow bodlay, background na */
+.ft-navbar.is-scrolled {
+  border-bottom-color: rgba(34, 211, 238, 0.28);
+  box-shadow: 0 10px 30px -18px rgba(34, 211, 238, 0.45);
+}
+
+/* Full width */
+.ft-navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 1.05rem 1.25rem;
+}
+
+/* Logo */
+.ft-nav-logo {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ft-surface);
+  text-decoration: none;
+}
+
+/* Logo shobsomoy white (span-o white) */
+.ft-nav-logo span {
+  color: var(--ft-surface);
+}
+
+.ft-nav-logo:hover {
+  color: var(--ft-surface);
+}
+
+.ft-navbar__links,
+.ft-navbar__actions {
+  display: none;
+}
+
+/* Nav links */
+.ft-navbar__link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ft-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover: shudhu text white, glow nai */
+.ft-navbar__link:hover {
+  color: var(--ft-surface);
+}
+
+.ft-navbar__link:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.ft-navbar__link.active {
+  color: #22d3ee;
+}
+
+.ft-navbar__link.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.3rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22d3ee;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.9);
+}
+
+.ft-navbar__login {
+  padding: 0.5rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ft-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ft-navbar__login:hover {
+  color: var(--ft-surface);
+}
+
+/* Cyan pill button */
+.ft-navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.3rem;
+  border-radius: 9999px;
+  background: #22d3ee;
+  color: #04202a;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 22px -10px rgba(34, 211, 238, 0.8);
+  transition: transform 0.2s ease;
+}
+
+/* Hover: colour same thake, glow nai */
+.ft-navbar__cta:hover {
+  transform: translateY(-1px);
+}
+
+.ft-navbar__cta:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+/* Mobile toggle */
+.ft-navbar__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 12px;
+  background: rgba(34, 211, 238, 0.06);
+  cursor: pointer;
+  color: var(--ft-surface);
+}
+
+.ft-navbar__toggle:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+.ft-navbar__bar {
+  display: block;
+  width: 1.125rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ft-surface);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hamburger 3 line shobsomoy white (onno CSS override korle-o) */
+.ft-navbar__toggle .ft-navbar__bar {
+  background-color: var(--ft-surface) !important;
+}
+
+/* Jodi line er jaygay icon (svg) thake */
+.ft-navbar__toggle svg {
+  color: var(--ft-surface);
+  stroke: currentColor;
+}
+
+.ft-navbar__toggle[aria-expanded='true'] .ft-navbar__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.ft-navbar__toggle[aria-expanded='true'] .ft-navbar__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.ft-navbar__toggle[aria-expanded='true'] .ft-navbar__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu: dark panel */
+.ft-navbar__mobile {
+  display: none;
+}
+
+.ft-navbar__mobile.is-open {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.5rem 1.25rem 1.25rem;
+  background: var(--ft-nav-panel);
+  border-top: 1px solid rgba(34, 211, 238, 0.14);
+}
+
+.ft-navbar__mobile .ft-navbar__link {
+  padding: 0.75rem 0.25rem;
+  font-size: 1rem;
+}
+
+.ft-navbar__mobile .ft-navbar__link.active::after {
+  display: none;
+}
+
+.ft-navbar__mobile .ft-navbar__cta {
+  margin-top: 0.75rem;
+}
+
+/* Tablet and desktop */
+@media (min-width: 768px) {
+  .ft-navbar__links {
+    display: flex;
+    gap: 2.25rem;
+  }
+
+  .ft-navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .ft-navbar__toggle,
+  .ft-navbar__mobile {
+    display: none;
+  }
+}
+
+/* Large screens: same side spacing as the hero */
+@media (min-width: 900px) {
+  .ft-navbar__inner {
+    padding: 1.05rem 4rem;
+  }
+}
+
+/* ---------- Shared logo (used in the footer) ---------- */
+.ft-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ft-surface);
+  text-decoration: none;
+}
+
+.ft-logo__mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--ft-accent), #65a30d);
+  color: var(--ft-navy-900);
+  font-weight: 900;
+}

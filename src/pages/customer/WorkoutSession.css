@@ -1,0 +1,423 @@
+/* Workout session page. Same palette and card style as the other customer pages. */
+
+.ws-page {
+  --ws-brand: var(--ft-navy-700);
+  --ws-brand-dark: var(--ft-navy-800);
+  --ws-brand-mid: var(--ws-brand);
+  --ws-mint: var(--ft-page);
+  --ws-mint-deep: var(--ft-border-soft);
+  --ws-ink: var(--ft-text);
+  --ws-muted: var(--ft-text-muted);
+  --ws-subtle: var(--ft-text-muted);
+  --ws-line: var(--ft-border);
+  --ws-line-soft: var(--ft-border);
+  --ws-edge: var(--ft-border);
+  --ws-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
+  --ws-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  color: var(--ws-ink);
+}
+
+.ws-page a,
+.ws-page button {
+  cursor: pointer;
+}
+
+.ws-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Header */
+
+.ws-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ws-brand-mid);
+}
+
+.ws-title {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ws-ink);
+}
+
+.ws-sub {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ws-subtle);
+}
+
+/* Cards */
+
+.ws-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ws-line);
+  border-radius: 22px;
+  background: var(--ws-card-bg);
+  box-shadow: 0 14px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.ws-card--center {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.ws-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ws-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ws-ink);
+}
+
+.ws-muted {
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ws-subtle);
+}
+
+/* Status bar */
+
+.ws-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.ws-bar__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--ws-ink);
+}
+
+.ws-bar .ws-muted {
+  margin-top: 0.35rem;
+}
+
+/* Buttons */
+
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--ws-ease), color var(--ws-ease), border-color var(--ws-ease), transform var(--ws-ease), box-shadow var(--ws-ease);
+}
+
+.ws-btn:hover:not(:disabled) {
+  transform: scale(1.04);
+}
+
+.ws-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.ws-btn--solid {
+  background: var(--ws-brand);
+  border-color: var(--ws-brand);
+  color: var(--ft-surface);
+  box-shadow: 0 12px 24px -16px rgba(27, 39, 64, 0.8);
+}
+
+.ws-btn--solid:hover:not(:disabled) {
+  background: var(--ws-brand-dark);
+  border-color: var(--ws-brand-dark);
+}
+
+.ws-btn--outline {
+  background: var(--ft-surface);
+  border-color: var(--ws-brand);
+  color: var(--ws-brand);
+}
+
+.ws-btn--outline:hover:not(:disabled) {
+  background: var(--ws-brand);
+  color: var(--ft-surface);
+}
+
+.ws-btn--danger {
+  background: var(--ft-surface);
+  border-color: var(--ft-danger);
+  color: var(--ft-danger);
+}
+
+.ws-btn--danger:hover:not(:disabled) {
+  background: var(--ft-danger);
+  color: var(--ft-surface);
+}
+
+.ws-btn--sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Inputs */
+
+.ws-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--ws-edge);
+  border-radius: 12px;
+  background: var(--ft-surface);
+  color: var(--ws-ink);
+  font: inherit;
+  font-size: 0.92rem;
+  transition: border-color var(--ws-ease), box-shadow var(--ws-ease);
+}
+
+.ws-input:focus {
+  outline: none;
+  border-color: var(--ws-brand);
+  box-shadow: 0 0 0 3px rgba(27, 39, 64, 0.15);
+}
+
+.ws-select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d4b3c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.ws-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ws-muted);
+}
+
+/* Add exercise row */
+
+.ws-add {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Exercise log card */
+
+.ws-ex__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ws-ex__name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ws-ink);
+}
+
+.ws-ex__meta {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  color: var(--ws-subtle);
+}
+
+.ws-pill {
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  background: var(--ws-mint-deep);
+  color: var(--ws-brand);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ws-sets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* One set row */
+
+.ws-setrow {
+  display: grid;
+  gap: 0.75rem;
+  align-items: end;
+  padding: 1rem;
+  border: 1px solid var(--ws-line-soft);
+  border-radius: 16px;
+  background: var(--ft-surface);
+  transition: border-color var(--ws-ease), background-color var(--ws-ease);
+}
+
+.ws-setrow:hover {
+  border-color: var(--ws-brand);
+  background: var(--ft-page);
+}
+
+.ws-setrow__num {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ws-brand);
+}
+
+.ws-setrow__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ws-check {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ws-muted);
+  cursor: pointer;
+}
+
+.ws-check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--ws-brand);
+}
+
+/* Recovery */
+
+.ws-note {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e6cf85;
+  border-radius: 14px;
+  background: #fdf7e2;
+  font-size: 0.9rem;
+  color: #6b5a1e;
+}
+
+.ws-groups {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ws-group {
+  padding: 1rem;
+  border: 1px solid var(--ws-edge);
+  border-radius: 16px;
+  background: var(--ws-mint);
+  transition: transform var(--ws-ease), border-color var(--ws-ease);
+}
+
+.ws-group:hover {
+  transform: scale(1.02);
+  border-color: var(--ws-brand);
+}
+
+.ws-group__name {
+  margin: 0;
+  font-weight: 800;
+  text-transform: capitalize;
+  color: var(--ws-ink);
+}
+
+.ws-status {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ws-status--ok {
+  color: var(--ws-brand);
+}
+
+.ws-status--wait {
+  color: var(--ft-warning);
+}
+
+/* Layout */
+
+@media (min-width: 640px) {
+  .ws-add {
+    flex-direction: row;
+  }
+
+  .ws-add .ws-btn {
+    flex-shrink: 0;
+  }
+
+  .ws-setrow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ws-setrow__num {
+    grid-column: 1 / -1;
+  }
+
+  .ws-setrow__actions {
+    grid-column: 1 / -1;
+  }
+
+  .ws-groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ws-groups {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .ws-setrow {
+    grid-template-columns: 0.5fr 1fr 1fr 1.3fr auto;
+  }
+
+  .ws-setrow__num {
+    grid-column: auto;
+  }
+
+  .ws-setrow__actions {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-btn:hover:not(:disabled),
+  .ws-btn:active:not(:disabled),
+  .ws-group:hover {
+    transform: none;
+  }
+}

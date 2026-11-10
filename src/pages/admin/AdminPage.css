@@ -1,0 +1,334 @@
+/* Shared admin page styles. Every admin page imports this file.
+   Palette matches the public home page and the admin dashboard. */
+
+.ap-page {
+  --ap-brand: var(--ft-navy-700);
+  --ap-brand-dark: var(--ft-navy-800);
+  --ap-brand-mid: var(--ap-brand-dark);
+  --ap-brand-soft: #f1f5f9;
+  --ap-mint: var(--ft-page);
+  --ap-mint-deep: var(--ft-border-soft);
+  --ap-ink: var(--ft-text);
+  --ap-muted: var(--ft-text-muted);
+  --ap-subtle: var(--ft-text-muted);
+  --ap-line: var(--ft-border);
+  --ap-edge: var(--ft-border);
+  --ap-card: var(--ft-surface);
+  --ap-hover: var(--ft-page);
+  --ap-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #f1f5f9 0%, var(--ft-page) 340px);
+  color: var(--ap-ink);
+}
+
+.ap-page a,
+.ap-page button {
+  cursor: pointer;
+}
+
+.ap-page button:disabled {
+  cursor: not-allowed;
+}
+
+/* Page header: green banner, like the dashboard hero */
+
+.ap-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 22px;
+  background: radial-gradient(circle at 90% 10%, var(--ap-brand-mid) 0%, var(--ap-brand) 50%, var(--ap-brand-dark) 100%);
+  color: var(--ft-surface);
+  box-shadow: 0 18px 40px -26px rgba(11, 17, 32, 0.7);
+}
+
+.ap-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ft-surface);
+}
+
+.ap-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  word-break: break-word;
+}
+
+.ap-back {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ap-back:hover {
+  color: var(--ft-surface);
+  text-decoration: underline;
+}
+
+/* Card: white with a faint mint tint */
+
+.ap-card {
+  padding: 1.5rem;
+  border: 1px solid var(--ap-line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--ft-surface) 0%, #f1f5f9 100%);
+  box-shadow: 0 10px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.ap-card__title {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ap-brand);
+}
+
+/* Buttons */
+
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--ap-brand);
+  border-radius: 9999px;
+  background: var(--ft-surface);
+  color: var(--ap-brand);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color var(--ap-ease), color var(--ap-ease), transform var(--ap-ease), border-color var(--ap-ease);
+}
+
+.ap-btn:hover:not(:disabled) {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+  transform: scale(1.04);
+}
+
+.ap-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.ap-btn:disabled {
+  opacity: 0.5;
+}
+
+/* Button inside the green banner */
+.ap-head .ap-btn {
+  border-color: var(--ft-surface);
+  color: var(--ft-surface);
+  background: transparent;
+}
+
+.ap-head .ap-btn:hover:not(:disabled) {
+  background: var(--ft-surface);
+  color: var(--ap-brand);
+}
+
+.ap-btn--solid {
+  background: var(--ap-brand);
+  color: var(--ft-surface);
+}
+
+.ap-btn--solid:hover:not(:disabled) {
+  background: var(--ap-brand-dark);
+  border-color: var(--ap-brand-dark);
+  color: var(--ft-surface);
+}
+
+/* Inputs */
+
+.ap-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--ap-edge);
+  border-radius: 12px;
+  background: var(--ft-surface);
+  color: var(--ap-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  transition: border-color var(--ap-ease), box-shadow var(--ap-ease);
+}
+
+.ap-input::placeholder {
+  color: var(--ft-text-subtle);
+}
+
+.ap-input:focus {
+  outline: none;
+  border-color: var(--ap-brand);
+  box-shadow: 0 0 0 3px rgba(27, 39, 64, 0.15);
+}
+
+/* Table: mint header row */
+
+.ap-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+}
+
+.ap-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.ap-table th {
+  padding: 0.8rem 0.75rem;
+  background: var(--ap-mint);
+  border-bottom: 1px solid var(--ap-line);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ap-brand);
+  white-space: nowrap;
+}
+
+.ap-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.ap-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.ap-table td {
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid var(--ap-line);
+  vertical-align: middle;
+  color: var(--ap-ink);
+}
+
+.ap-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ap-table tbody tr {
+  transition: background-color var(--ap-ease);
+}
+
+.ap-table tbody tr:hover {
+  background: var(--ap-hover);
+}
+
+.ap-id {
+  font-size: 0.78rem;
+  color: var(--ap-subtle);
+  word-break: break-all;
+}
+
+.ap-link {
+  font-weight: 600;
+  color: var(--ap-brand);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ap-link:hover {
+  color: var(--ap-brand-dark);
+  text-decoration: underline;
+}
+
+/* Empty and loading */
+
+.ap-empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  border: 1px dashed var(--ap-edge);
+  border-radius: 16px;
+  background: var(--ap-mint);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ap-subtle);
+}
+
+.ap-center {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+/* Summary tiles: mint background, green value */
+
+.ap-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.ap-stat {
+  padding: 1.25rem;
+  border: 1px solid var(--ap-edge);
+  border-radius: 18px;
+  background: var(--ap-mint);
+  transition: transform var(--ap-ease), border-color var(--ap-ease), background-color var(--ap-ease), box-shadow var(--ap-ease);
+}
+
+.ap-stat:hover {
+  transform: scale(1.03);
+  border-color: var(--ap-brand);
+  background: var(--ap-mint-deep);
+  box-shadow: 0 16px 36px -22px rgba(27, 39, 64, 0.5);
+}
+
+.ap-stat__label {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ap-muted);
+}
+
+.ap-stat__value {
+  margin: 0.45rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ap-brand);
+  word-break: break-word;
+}
+
+/* Responsive */
+
+@media (min-width: 640px) {
+  .ap-page {
+    padding: 1.75rem;
+  }
+
+  .ap-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .ap-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Reduced motion: keep colour change, remove zoom */
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-btn:hover:not(:disabled),
+  .ap-btn:active:not(:disabled),
+  .ap-stat:hover {
+    transform: none;
+  }
+}

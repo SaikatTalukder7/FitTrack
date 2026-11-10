@@ -1,0 +1,21 @@
+/* Customers page: search bar layout */
+
+.cu-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cu-search__input {
+  flex: 1 1 16rem;
+}
+
+.cu-search__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cu-name {
+  font-weight: 700;
+}

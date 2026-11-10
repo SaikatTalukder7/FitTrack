@@ -1,0 +1,7 @@
+/* Statistics page */
+
+.st-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ap-subtle);
+}

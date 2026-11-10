@@ -1,0 +1,192 @@
+/* Progress page. Same palette and card style as the other customer pages. */
+
+.pg-page {
+  --pg-brand: var(--ft-navy-700);
+  --pg-brand-dark: var(--ft-navy-800);
+  --pg-brand-mid: var(--pg-brand);
+  --pg-mint: var(--ft-page);
+  --pg-mint-deep: var(--ft-border-soft);
+  --pg-ink: var(--ft-text);
+  --pg-muted: var(--ft-text-muted);
+  --pg-subtle: var(--ft-text-muted);
+  --pg-line: var(--ft-border);
+  --pg-edge: var(--ft-border);
+  --pg-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
+  --pg-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  color: var(--pg-ink);
+}
+
+.pg-page a,
+.pg-page button {
+  cursor: pointer;
+}
+
+/* Header */
+
+.pg-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pg-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pg-brand-mid);
+}
+
+.pg-title {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--pg-ink);
+}
+
+.pg-sub {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--pg-subtle);
+}
+
+/* Cards */
+
+.pg-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--pg-line);
+  border-radius: 22px;
+  background: var(--pg-card-bg);
+  box-shadow: 0 14px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.pg-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pg-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--pg-ink);
+}
+
+.pg-muted {
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--pg-subtle);
+}
+
+.pg-chart {
+  padding: 0.5rem 0 0;
+}
+
+/* Fields */
+
+.pg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--pg-muted);
+}
+
+.pg-select {
+  min-width: 13rem;
+  padding: 0.65rem 2.5rem 0.65rem 0.9rem;
+  border: 1px solid var(--pg-edge);
+  border-radius: 12px;
+  background-color: var(--ft-surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d4b3c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1rem;
+  color: var(--pg-ink);
+  font: inherit;
+  font-size: 0.92rem;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--pg-ease), box-shadow var(--pg-ease);
+}
+
+.pg-select:focus {
+  outline: none;
+  border-color: var(--pg-brand);
+  box-shadow: 0 0 0 3px rgba(27, 39, 64, 0.15);
+}
+
+/* Buttons */
+
+.pg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--pg-brand);
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--pg-ease), color var(--pg-ease), transform var(--pg-ease);
+}
+
+.pg-btn--outline {
+  background: var(--ft-surface);
+  color: var(--pg-brand);
+}
+
+.pg-btn--outline:hover {
+  background: var(--pg-brand);
+  color: var(--ft-surface);
+  transform: scale(1.04);
+}
+
+.pg-btn--outline:active {
+  transform: scale(0.98);
+}
+
+/* Empty state */
+
+.pg-empty {
+  padding: 2rem 1.25rem;
+  border: 1px dashed var(--pg-edge);
+  border-radius: 18px;
+  background: var(--pg-mint);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--pg-subtle);
+}
+
+/* Layout */
+
+@media (min-width: 640px) {
+  .pg-head .pg-btn {
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-btn--outline:hover,
+  .pg-btn--outline:active {
+    transform: none;
+  }
+}

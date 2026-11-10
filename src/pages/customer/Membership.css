@@ -1,0 +1,453 @@
+/* Membership page. Same palette and card style as the other customer pages. */
+
+.mb-page {
+  --mb-brand: var(--ft-navy-700);
+  --mb-brand-dark: var(--ft-navy-800);
+  --mb-brand-mid: var(--mb-brand);
+  --mb-mint: var(--ft-page);
+  --mb-mint-deep: var(--ft-border-soft);
+  --mb-ink: var(--ft-text);
+  --mb-muted: var(--ft-text-muted);
+  --mb-subtle: var(--ft-text-muted);
+  --mb-line: var(--ft-border);
+  --mb-edge: var(--ft-border);
+  --mb-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
+  --mb-ease: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  color: var(--mb-ink);
+}
+
+.mb-page button {
+  cursor: pointer;
+}
+
+.mb-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Header */
+
+.mb-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mb-brand-mid);
+}
+
+.mb-title {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--mb-ink);
+}
+
+.mb-sub {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--mb-subtle);
+}
+
+/* Cards */
+
+.mb-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--mb-line);
+  border-radius: 22px;
+  background: var(--mb-card-bg);
+  box-shadow: 0 14px 30px -26px rgba(27, 39, 64, 0.5);
+}
+
+.mb-card--center {
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.mb-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--mb-ink);
+}
+
+.mb-muted {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mb-subtle);
+}
+
+.mb-strong {
+  color: var(--mb-brand);
+}
+
+.mb-label {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mb-subtle);
+}
+
+.mb-empty {
+  margin: 0;
+  padding: 1.5rem 1.25rem;
+  border: 1px dashed var(--mb-edge);
+  border-radius: 16px;
+  background: var(--mb-mint);
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--mb-subtle);
+}
+
+/* Current membership */
+
+.mb-current__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.mb-current__name {
+  margin: 0.3rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--mb-ink);
+}
+
+.mb-dates {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.mb-date {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--mb-edge);
+  border-radius: 14px;
+  background: var(--mb-mint);
+  transition: transform var(--mb-ease), border-color var(--mb-ease);
+}
+
+.mb-date:hover {
+  transform: scale(1.03);
+  border-color: var(--mb-brand);
+}
+
+.mb-date span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--mb-subtle);
+}
+
+.mb-date strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: var(--mb-brand);
+}
+
+.mb-upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--mb-edge);
+}
+
+.mb-upcoming__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--mb-edge);
+  border-radius: 14px;
+  background: var(--mb-mint);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--mb-ink);
+}
+
+/* Plans */
+
+.mb-plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.mb-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--mb-line);
+  border-radius: 18px;
+  background: var(--ft-surface);
+  transition: transform var(--mb-ease), border-color var(--mb-ease), box-shadow var(--mb-ease);
+}
+
+.mb-plan:hover {
+  transform: scale(1.03);
+  border-color: var(--mb-brand);
+  box-shadow: 0 18px 36px -24px rgba(27, 39, 64, 0.55);
+}
+
+.mb-plan.is-selected {
+  border-color: var(--mb-brand);
+  background: var(--mb-mint);
+}
+
+.mb-plan__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--mb-ink);
+}
+
+.mb-plan__price {
+  margin: 0.2rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--mb-brand);
+}
+
+.mb-plan__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--mb-subtle);
+}
+
+.mb-plan__desc {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--mb-muted);
+}
+
+.mb-plan .mb-btn {
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+
+/* Purchase form and bKash box */
+
+.mb-pay {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  border: 1px solid var(--mb-edge);
+  border-radius: 18px;
+  background: var(--mb-mint);
+}
+
+.mb-pay__number {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--mb-brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.mb-steps {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--mb-muted);
+}
+
+.mb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mb-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--mb-edge);
+  border-radius: 14px;
+  background: var(--ft-surface);
+  color: var(--mb-ink);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color var(--mb-ease), box-shadow var(--mb-ease);
+}
+
+.mb-input:focus {
+  outline: none;
+  border-color: var(--mb-brand);
+  box-shadow: 0 0 0 4px rgba(27, 39, 64, 0.14);
+}
+
+.mb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Requests */
+
+.mb-requests {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mb-req {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--mb-line);
+  border-radius: 16px;
+  background: var(--ft-surface);
+  transition: border-color var(--mb-ease), background-color var(--mb-ease);
+}
+
+.mb-req:hover {
+  border-color: var(--mb-brand);
+  background: var(--ft-page);
+}
+
+.mb-req__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.mb-req__name {
+  margin: 0;
+  font-weight: 800;
+  color: var(--mb-ink);
+}
+
+.mb-req__meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--mb-subtle);
+  word-break: break-word;
+}
+
+.mb-req__reason {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ft-danger);
+}
+
+/* Status tags */
+
+.mb-tag {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mb-tag--approved {
+  background: var(--mb-mint-deep);
+  color: var(--mb-brand);
+}
+
+.mb-tag--pending {
+  background: var(--ft-warning-soft);
+  color: var(--ft-warning);
+}
+
+.mb-tag--rejected {
+  background: #fde8e6;
+  color: var(--ft-danger);
+}
+
+/* Buttons */
+
+.mb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--mb-brand);
+  border-radius: 9999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: background-color var(--mb-ease), color var(--mb-ease), transform var(--mb-ease), box-shadow var(--mb-ease);
+}
+
+.mb-btn:hover:not(:disabled) {
+  transform: scale(1.04);
+}
+
+.mb-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.mb-btn--solid {
+  background: var(--mb-brand);
+  color: var(--ft-surface);
+  box-shadow: 0 12px 24px -16px rgba(27, 39, 64, 0.8);
+}
+
+.mb-btn--solid:hover:not(:disabled) {
+  background: var(--mb-brand-dark);
+  border-color: var(--mb-brand-dark);
+}
+
+.mb-btn--outline {
+  background: var(--ft-surface);
+  color: var(--mb-brand);
+}
+
+.mb-btn--outline:hover:not(:disabled) {
+  background: var(--mb-brand);
+  color: var(--ft-surface);
+}
+
+/* Layout */
+
+@media (min-width: 640px) {
+  .mb-dates {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mb-plans {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mb-plans {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-btn:hover:not(:disabled),
+  .mb-btn:active:not(:disabled),
+  .mb-plan:hover,
+  .mb-date:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,26 @@
+.ft-chart__empty {
+  border: 1px dashed var(--ft-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--ft-text-muted);
+}
+
+.ft-chart__scroll {
+  overflow-x: auto;
+}
+
+.ft-chart__svg {
+  display: block;
+  width: 100%;
+  min-width: 520px;
+  height: auto;
+}
+
+.ft-chart__count {
+  margin: 0.5rem 0 0;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
