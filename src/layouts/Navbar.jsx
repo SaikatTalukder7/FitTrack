@@ -65,7 +65,7 @@ export default function Navbar() {
             Log in
           </Link>
           <Link to="/signup" className="ft-navbar__cta">
-            Get started
+            Sign Up
           </Link>
         </div>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
           Log in
         </Link>
         <Link to="/signup" className="ft-navbar__cta">
-          Get started
+          Sign Up
         </Link>
       </div>
     </header>
