@@ -2,6 +2,7 @@ import AppShell from './AppShell.jsx';
 
 const NAV = [
   { to: '/admin/customers', label: 'Customers' },
+  { to: '/admin/routines', label: 'Assign Routines' },
   { to: '/admin/exercises', label: 'Exercises' },
   { to: '/admin/splits', label: 'Splits' },
   { to: '/admin/equipment', label: 'Equipment' },

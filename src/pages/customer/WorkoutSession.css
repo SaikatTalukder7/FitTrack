@@ -415,6 +415,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .ws-btn:hover:not(:disabled),
   .ws-btn:active:not(:disabled),
   .ws-group:hover {

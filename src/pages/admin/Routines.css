@@ -141,6 +141,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .rt-danger:hover:not(:disabled),
   .rt-danger:active:not(:disabled) {
     transform: none;

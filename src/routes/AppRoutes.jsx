@@ -22,9 +22,16 @@ const Signup = lazy(() => import('../pages/public/Signup.jsx'));
 const ForgotPassword = lazy(() => import('../pages/public/ForgotPassword.jsx'));
 const ResetPassword = lazy(() => import('../pages/public/ResetPassword.jsx'));
 const VerifyEmail = lazy(() => import('../pages/public/VerifyEmail.jsx'));
+
 const Profile = lazy(() => import('../pages/customer/Profile.jsx'));
+const CustomerFeaturePage = lazy(() => import('../pages/customer/CustomerFeaturePage.jsx'));
+const MyRoutine = lazy(() => import('../pages/customer/MyRoutine.jsx'));
+const RoutineCustomize = lazy(() => import('../pages/customer/RoutineCustomize.jsx'));
+const WorkoutSession = lazy(() => import('../pages/customer/WorkoutSession.jsx'));
+
 const AdminCustomers = lazy(() => import('../pages/admin/Customers.jsx'));
 const AdminCustomerDetail = lazy(() => import('../pages/admin/CustomerDetail.jsx'));
+const AdminRoutines = lazy(() => import('../pages/admin/Routines.jsx'));
 const AdminExercises = lazy(() => import('../pages/admin/Exercises.jsx'));
 const AdminSplits = lazy(() => import('../pages/admin/Splits.jsx'));
 const AdminOperations = lazy(() => import('../pages/admin/Operations.jsx'));
@@ -61,18 +68,27 @@ export default function AppRoutes() {
               <Route index element={<Navigate to="customers" replace />} />
               <Route path="customers" element={<AdminCustomers />} />
               <Route path="customers/:id" element={<AdminCustomerDetail />} />
+              <Route path="routines" element={<AdminRoutines />} />
               <Route path="exercises" element={<AdminExercises />} />
               <Route path="exercises/new" element={<AdminExercises />} />
               <Route path="exercises/:id/edit" element={<AdminExercises />} />
               <Route path="splits" element={<AdminSplits />} />
               <Route path="equipment" element={<AdminOperations page="equipment" />} />
               <Route path="memberships/plans" element={<AdminOperations page="plans" />} />
+              {/* Demo helper only: not in the sidebar. Needed so a customer can check in. */}
+              <Route path="memberships" element={<AdminOperations page="memberships" />} />
             </Route>
           </Route>
 
           <Route element={<RoleRoute allowed={ROLES.CUSTOMER} />}>
             <Route path="app" element={<CustomerLayout />}>
-              <Route index element={<Navigate to="profile" replace />} />
+              <Route index element={<Navigate to="routine" replace />} />
+              <Route path="routine" element={<MyRoutine />} />
+              <Route path="routine/customize" element={<RoutineCustomize />} />
+              <Route path="session" element={<WorkoutSession />} />
+              <Route path="history" element={<CustomerFeaturePage page="history" />} />
+              <Route path="measurements" element={<CustomerFeaturePage page="measurements" />} />
+              <Route path="attendance" element={<CustomerFeaturePage page="attendance" />} />
               <Route path="profile" element={<Profile />} />
             </Route>
           </Route>

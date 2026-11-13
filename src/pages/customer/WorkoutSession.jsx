@@ -335,12 +335,12 @@ function SetLogForm({ setNumber, existing, entry, sessionId, busy, onSave }) {
             existing
               ? workoutService.updateWorkoutLog(existing.id, values)
               : workoutService.logSet({
-                  session_id: sessionId,
-                  routine_exercise_id: entry.id || null,
-                  exercise_id: entry.exercise_id,
-                  set_number: setNumber,
-                  ...values,
-                }),
+                session_id: sessionId,
+                routine_exercise_id: entry.id || null,
+                exercise_id: entry.exercise_id,
+                set_number: setNumber,
+                ...values,
+              }),
           existing ? 'Set log updated.' : 'Set logged.'
         );
       }}

@@ -375,6 +375,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .fp-btn:hover:not(:disabled),
   .fp-btn:active:not(:disabled),
   .fp-fact:hover {

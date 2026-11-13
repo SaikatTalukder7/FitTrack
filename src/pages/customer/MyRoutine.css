@@ -322,6 +322,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .mr-btn:hover,
   .mr-btn:active,
   .mr-stat:hover,

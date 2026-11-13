@@ -374,6 +374,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .rc-btn:hover:not(:disabled),
   .rc-btn:active:not(:disabled) {
     transform: none;
