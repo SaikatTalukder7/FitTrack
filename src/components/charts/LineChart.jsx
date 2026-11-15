@@ -54,7 +54,6 @@ export default function LineChart({ title, description, points, unit = '', color
           aria-labelledby={`line-chart-title-${id} line-chart-description-${id}`}
         >
           <title id={`line-chart-title-${id}`}>{title}</title>
-
           {gridValues.map((value, index) => {
             const yy = y(value);
             return (
@@ -67,9 +66,7 @@ export default function LineChart({ title, description, points, unit = '', color
               </g>
             );
           })}
-
           <path d={path} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-
           {values.map((point, index) => (
             <circle
               key={`${point.date}-${index}`}
@@ -94,7 +91,6 @@ export default function LineChart({ title, description, points, unit = '', color
           )}
         </svg>
       </div>
-
       <p className="ft-chart__count">
         {values.length} recorded point{values.length === 1 ? '' : 's'}
       </p>

@@ -21,14 +21,12 @@ const money = (n) =>
   new Intl.NumberFormat('en-BD', { style: 'currency', currency: 'BDT', maximumFractionDigits: 0 }).format(
     Number(n || 0)
   );
-
 export default function AdminStatistics() {
   const [period, setPeriod] = useState('month');
   const [anchor, setAnchor] = useState(() => new Date());
   const [data, setData] = useState({ customers: [], attendance: [], memberships: [], payments: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
   const { start, end } = getRange(period, anchor);
   const fromDate = toYmd(start);
   const toDate = toYmd(end);
@@ -60,9 +58,7 @@ export default function AdminStatistics() {
       cancelled = true;
     };
   }, [fromDate, toDate]);
-
   const inRange = (ymd) => Boolean(ymd) && ymd >= fromDate && ymd <= toDate;
-
   const newCustomers = useMemo(
     () => data.customers.filter((c) => c.created_at && inRange(toYmd(new Date(c.created_at)))),
     [data.customers, fromDate, toDate]
@@ -76,9 +72,7 @@ export default function AdminStatistics() {
     () => data.payments.filter((p) => p.paid_at && inRange(toYmd(new Date(p.paid_at)))),
     [data.payments, fromDate, toDate]
   );
-
   const collected = paidPayments.reduce((sum, p) => sum + Number(p.amount || 0), 0);
-
   const checkinBuckets = useMemo(
     () =>
       buildBuckets(
@@ -92,7 +86,6 @@ export default function AdminStatistics() {
       ),
     [period, anchor, data.attendance]
   );
-
   const moneyBuckets = useMemo(
     () =>
       buildBuckets(
@@ -105,9 +98,7 @@ export default function AdminStatistics() {
       ),
     [period, anchor, paidPayments]
   );
-
   const unit = UNIT_LABEL[period];
-
   return (
     <div className="ap-page">
       <div className="ap-head">
@@ -116,13 +107,11 @@ export default function AdminStatistics() {
           <p className="ap-sub">Gym activity for the selected day, week, month or year.</p>
         </div>
       </div>
-
       {error && (
         <Alert type="error" title="Could not load statistics">
           {error}
         </Alert>
       )}
-
       <section className="ap-card">
         <PeriodControls
           period={period}
@@ -131,7 +120,6 @@ export default function AdminStatistics() {
           onAnchorChange={setAnchor}
         />
       </section>
-
       {loading ? (
         <section className="ap-card">
           <Spinner label="Loading statistics" />
@@ -161,12 +149,10 @@ export default function AdminStatistics() {
             <h2 className="ap-card__title">Check-ins by {unit}</h2>
             <ColumnChart buckets={checkinBuckets} ariaLabel={`Check-ins by ${unit}`} />
           </section>
-
           <section className="ap-card">
             <h2 className="ap-card__title">Collected by {unit}</h2>
             <ColumnChart buckets={moneyBuckets} format={money} ariaLabel={`Payments collected by ${unit}`} />
           </section>
-
           <p className="st-note">
             Payments are counted on the date they were marked paid. Memberships are counted on their start date.
           </p>

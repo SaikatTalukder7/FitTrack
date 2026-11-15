@@ -6,23 +6,18 @@ export const PERIODS = [
   { key: 'month', label: 'Month' },
   { key: 'year', label: 'Year' },
 ];
-
 export const UNIT_LABEL = { day: 'hour', week: 'day', month: 'day', year: 'month' };
-
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 const pad = (n) => String(n).padStart(2, '0');
 
 // Local calendar date as YYYY-MM-DD (avoids time-zone shifts)
 export function toYmd(date) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
-
 export function fromYmd(value) {
   const [y, m, d] = value.split('-').map(Number);
   return new Date(y, m - 1, d);
 }
-
 export function getRange(period, anchor) {
   const y = anchor.getFullYear();
   const m = anchor.getMonth();
@@ -35,7 +30,6 @@ export function getRange(period, anchor) {
   if (period === 'month') return { start: new Date(y, m, 1), end: new Date(y, m + 1, 0) };
   return { start: new Date(y, 0, 1), end: new Date(y, 11, 31) };
 }
-
 export function shiftAnchor(anchor, period, dir) {
   const d = new Date(anchor.getFullYear(), anchor.getMonth(), anchor.getDate());
   if (period === 'day') d.setDate(d.getDate() + dir);
@@ -47,16 +41,13 @@ export function shiftAnchor(anchor, period, dir) {
   if (period === 'year') d.setFullYear(d.getFullYear() + dir);
   return d;
 }
-
 function formatDate(date) {
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
-
 export function rangeLabel(period, anchor) {
   const { start, end } = getRange(period, anchor);
   return period === 'day' ? formatDate(start) : `${formatDate(start)} – ${formatDate(end)}`;
 }
-
 // items: [{ ymd: 'YYYY-MM-DD', hour: 0-23 or null, value: number }]
 export function buildBuckets(period, anchor, items) {
   const { start, end } = getRange(period, anchor);
@@ -70,7 +61,6 @@ export function buildBuckets(period, anchor, items) {
     });
     return buckets;
   }
-
   if (period === 'year') {
     const buckets = MONTHS.map((label, m) => ({ key: m, label, value: 0, count: 0 }));
     items.forEach((item) => {
@@ -80,7 +70,6 @@ export function buildBuckets(period, anchor, items) {
     });
     return buckets;
   }
-
   const buckets = [];
   const cursor = new Date(start);
   while (cursor <= end) {
@@ -104,7 +93,6 @@ export function buildBuckets(period, anchor, items) {
   });
   return buckets;
 }
-
 export function peakOf(buckets) {
   let best = null;
   buckets.forEach((b) => {
@@ -112,7 +100,6 @@ export function peakOf(buckets) {
   });
   return best;
 }
-
 export function PeriodControls({ period, anchor, onPeriodChange, onAnchorChange }) {
   return (
     <div className="pr-controls">
@@ -130,7 +117,6 @@ export function PeriodControls({ period, anchor, onPeriodChange, onAnchorChange 
           </button>
         ))}
       </div>
-
       <div className="pr-nav">
         <button
           type="button"
@@ -164,7 +150,6 @@ export function PeriodControls({ period, anchor, onPeriodChange, onAnchorChange 
     </div>
   );
 }
-
 export function ColumnChart({ buckets, format = (v) => v, ariaLabel }) {
   const max = Math.max(0, ...buckets.map((b) => b.value));
   const dense = buckets.length > 12;

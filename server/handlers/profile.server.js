@@ -90,7 +90,6 @@ export const profileHandlers = {
       return outAll(rows);
     },
   },
-
   'customers.details': {
     auth: 'admin',
     run: async ({ db, args }) => {
@@ -135,7 +134,6 @@ export const profileHandlers = {
     },
   },
 };
-
 export function assertSelfOrAdmin(user, customerId, message = 'You can only access your own records.') {
   if (user.role === 'admin') return;
   if (customerId !== user._id) throw new AppError(message, '42501');

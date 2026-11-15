@@ -128,7 +128,6 @@ export default function Dashboard() {
           {dashboard.errors[0]} Refresh the page to try again.
         </Alert>
       )}
-
       {/* Hero */}
       <section className="cx-hero">
         <span className="cx-hero__ring" aria-hidden="true" />
@@ -150,7 +149,6 @@ export default function Dashboard() {
               </Link>
             </div>
           </div>
-
           <div className="cx-focus">
             <div className="cx-focus__top">
               <Icon className="cx-icon--lime">✦</Icon>
@@ -270,7 +268,6 @@ export default function Dashboard() {
             )}
           </div>
         </div>
-
         <div>
           <SectionHeading
             title="Membership snapshot"
@@ -321,7 +318,6 @@ export default function Dashboard() {
           </div>
         </div>
       </section>
-
       {/* Recent workouts */}
       <section>
         <SectionHeading

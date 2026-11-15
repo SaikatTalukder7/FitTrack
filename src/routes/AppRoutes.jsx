@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import PublicLayout from '../layouts/PublicLayout.jsx';
 import AdminLayout from '../layouts/AdminLayout.jsx';
@@ -22,19 +22,24 @@ const Signup = lazy(() => import('../pages/public/Signup.jsx'));
 const ForgotPassword = lazy(() => import('../pages/public/ForgotPassword.jsx'));
 const ResetPassword = lazy(() => import('../pages/public/ResetPassword.jsx'));
 const VerifyEmail = lazy(() => import('../pages/public/VerifyEmail.jsx'));
-
 const Profile = lazy(() => import('../pages/customer/Profile.jsx'));
+const Dashboard = lazy(() => import('../pages/customer/Dashboard.jsx'));
 const CustomerFeaturePage = lazy(() => import('../pages/customer/CustomerFeaturePage.jsx'));
+const Membership = lazy(() => import('../pages/customer/Membership.jsx'));
 const MyRoutine = lazy(() => import('../pages/customer/MyRoutine.jsx'));
 const RoutineCustomize = lazy(() => import('../pages/customer/RoutineCustomize.jsx'));
 const WorkoutSession = lazy(() => import('../pages/customer/WorkoutSession.jsx'));
-
+const Progress = lazy(() => import('../pages/customer/Progress.jsx'));
 const AdminCustomers = lazy(() => import('../pages/admin/Customers.jsx'));
 const AdminCustomerDetail = lazy(() => import('../pages/admin/CustomerDetail.jsx'));
 const AdminRoutines = lazy(() => import('../pages/admin/Routines.jsx'));
 const AdminExercises = lazy(() => import('../pages/admin/Exercises.jsx'));
 const AdminSplits = lazy(() => import('../pages/admin/Splits.jsx'));
 const AdminOperations = lazy(() => import('../pages/admin/Operations.jsx'));
+const AdminDashboard = lazy(() => import('../pages/admin/Dashboard.jsx'));
+const AdminAttendance = lazy(() => import('../pages/admin/Attendance.jsx'));
+const AdminStatistics = lazy(() => import('../pages/admin/Statistics.jsx'));
+const AdminPaymentRequests = lazy(() => import('../pages/admin/PaymentRequests.jsx'));
 
 export default function AppRoutes() {
   return (
@@ -46,6 +51,7 @@ export default function AppRoutes() {
       }
     >
       <Routes>
+        {/* Public pages (with Navbar and Footer) */}
         <Route element={<PublicLayout />}>
           <Route index element={<Landing />} />
           <Route path="how-it-works" element={<HowItWorks />} />
@@ -59,13 +65,17 @@ export default function AppRoutes() {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="verify-email" element={<VerifyEmail />} />
+
+          {/* 404 page, shown with Navbar and Footer */}
           <Route path="*" element={<NotFound />} />
         </Route>
 
+        {/* Protected pages */}
         <Route element={<ProtectedRoute />}>
+          {/* Admin pages */}
           <Route element={<RoleRoute allowed={ROLES.ADMIN} />}>
             <Route path="admin" element={<AdminLayout />}>
-              <Route index element={<Navigate to="customers" replace />} />
+              <Route index element={<AdminDashboard />} />
               <Route path="customers" element={<AdminCustomers />} />
               <Route path="customers/:id" element={<AdminCustomerDetail />} />
               <Route path="routines" element={<AdminRoutines />} />
@@ -75,19 +85,26 @@ export default function AppRoutes() {
               <Route path="splits" element={<AdminSplits />} />
               <Route path="equipment" element={<AdminOperations page="equipment" />} />
               <Route path="memberships/plans" element={<AdminOperations page="plans" />} />
-              {/* Demo helper only: not in the sidebar. Needed so a customer can check in. */}
               <Route path="memberships" element={<AdminOperations page="memberships" />} />
+              <Route path="payments" element={<AdminOperations page="payments" />} />
+              <Route path="payment-requests" element={<AdminPaymentRequests />} />
+              <Route path="attendance" element={<AdminAttendance />} />
+              <Route path="statistics" element={<AdminStatistics />} />
             </Route>
           </Route>
 
+          {/* Customer pages */}
           <Route element={<RoleRoute allowed={ROLES.CUSTOMER} />}>
             <Route path="app" element={<CustomerLayout />}>
-              <Route index element={<Navigate to="routine" replace />} />
+              <Route index element={<Dashboard />} />
               <Route path="routine" element={<MyRoutine />} />
               <Route path="routine/customize" element={<RoutineCustomize />} />
               <Route path="session" element={<WorkoutSession />} />
               <Route path="history" element={<CustomerFeaturePage page="history" />} />
+              <Route path="progress" element={<Progress />} />
               <Route path="measurements" element={<CustomerFeaturePage page="measurements" />} />
+              <Route path="membership" element={<Membership />} />
+              <Route path="payments" element={<CustomerFeaturePage page="payments" />} />
               <Route path="attendance" element={<CustomerFeaturePage page="attendance" />} />
               <Route path="profile" element={<Profile />} />
             </Route>

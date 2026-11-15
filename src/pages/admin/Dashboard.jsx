@@ -57,7 +57,6 @@ export default function AdminDashboard() {
     const results = [customers, routines, splits, equipment, plans, payments, memberships, attendance];
     const failed = results.find((result) => result.error);
     if (failed) setError(failed.error.message || 'Some dashboard information could not be loaded.');
-
     const routineRows = routines.data || [];
     setStats({
       customers: (customers.data || []).length,
@@ -76,7 +75,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     load();
   }, [load]);
-
   return (
     <div className="ad-page">
       {/* Hero */}
@@ -100,7 +98,6 @@ export default function AdminDashboard() {
           {error}
         </Alert>
       )}
-
       {/* Overview */}
       <section>
         <div className="ad-section-head">
@@ -112,7 +109,6 @@ export default function AdminDashboard() {
             {loading ? 'Refreshing…' : 'Refresh'}
           </button>
         </div>
-
         {loading ? (
           <div className="ad-card">
             <Spinner label="Loading dashboard overview" />
@@ -139,7 +135,6 @@ export default function AdminDashboard() {
           </div>
         )}
       </section>
-
       {/* Recent routines and quick actions */}
       <section className="ad-grid-two">
         <div className="ad-card">

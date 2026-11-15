@@ -444,6 +444,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .mb-btn:hover:not(:disabled),
   .mb-btn:active:not(:disabled),
   .mb-plan:hover,

@@ -211,6 +211,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .pr-btn:hover:not(:disabled),
   .pr-danger:hover:not(:disabled) {
     transform: none;

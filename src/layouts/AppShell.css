@@ -184,6 +184,10 @@
   transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
+.ft-signout + .ft-signout {
+  margin-inline-start: 0.5rem;
+}
+
 .ft-signout:hover {
   background: var(--ft-shell-brand);
   color: var(--ft-surface);

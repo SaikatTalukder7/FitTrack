@@ -46,13 +46,11 @@ export default function Progress() {
   useEffect(() => {
     load();
   }, [load]);
-
   const exercises = useMemo(() => {
     const unique = new Map();
     for (const log of performance) unique.set(log.exercise_id, log.exercises?.name || 'Exercise');
     return [...unique.entries()].sort((a, b) => a[1].localeCompare(b[1]));
   }, [performance]);
-
   const [exerciseId, setExerciseId] = useState('');
 
   useEffect(() => {
@@ -68,9 +66,7 @@ export default function Progress() {
     const current = performanceByDay.get(date);
     if (!current || value > current.value) performanceByDay.set(date, { date, value });
   }
-
   const metricInfo = METRICS.find(([key]) => key === metric);
-
   return (
     <div className="pg-page">
       <header className="pg-head">
@@ -89,7 +85,6 @@ export default function Progress() {
           {error}
         </Alert>
       )}
-
       {/* Body measurements */}
       <section className="pg-card">
         <div className="pg-card__head">
@@ -112,7 +107,6 @@ export default function Progress() {
             </select>
           </label>
         </div>
-
         <div className="pg-chart">
           {loading ? (
             <Spinner label="Loading progress" />
@@ -127,7 +121,6 @@ export default function Progress() {
           )}
         </div>
       </section>
-
       {/* Exercise performance */}
       <section className="pg-card">
         <div className="pg-card__head">
@@ -152,7 +145,6 @@ export default function Progress() {
             </label>
           )}
         </div>
-
         <div className="pg-chart">
           {loading ? (
             <Spinner label="Loading workout performance" />

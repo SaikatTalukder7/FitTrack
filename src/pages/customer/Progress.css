@@ -185,6 +185,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .pg-btn--outline:hover,
   .pg-btn--outline:active {
     transform: none;

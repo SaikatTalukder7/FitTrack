@@ -52,12 +52,10 @@ export default function AdminAttendance() {
       })),
     [records]
   );
-
   const buckets = useMemo(() => buildBuckets(period, anchor, items), [period, anchor, items]);
   const peak = peakOf(buckets);
   const unit = UNIT_LABEL[period];
   const uniqueCustomers = new Set(records.map((r) => r.customer_id)).size;
-
   return (
     <div className="ap-page">
       <div className="ap-head">

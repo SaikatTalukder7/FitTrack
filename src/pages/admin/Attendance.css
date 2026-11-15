@@ -3,13 +3,11 @@
 .at-controls {
   padding: 1.25rem;
 }
-
 .at-count {
   font-weight: 800;
   color: var(--ap-brand);
   font-variant-numeric: tabular-nums;
 }
-
 .at-muted {
   color: var(--ap-subtle);
   font-weight: 500;

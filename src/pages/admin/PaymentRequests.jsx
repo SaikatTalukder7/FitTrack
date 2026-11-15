@@ -33,7 +33,6 @@ export default function AdminPaymentRequests() {
   const [bkashNumber, setBkashNumber] = useState('');
   const [numberDraft, setNumberDraft] = useState('');
   const [savingNumber, setSavingNumber] = useState(false);
-
   const [rejectingId, setRejectingId] = useState(null);
   const [rejectReason, setRejectReason] = useState('');
 
@@ -65,7 +64,6 @@ export default function AdminPaymentRequests() {
   useEffect(() => {
     loadRequests();
   }, [loadRequests]);
-
   async function saveNumber(event) {
     event.preventDefault();
     setError('');
@@ -80,7 +78,6 @@ export default function AdminPaymentRequests() {
     setBkashNumber(numberDraft.trim());
     setNotice('Payment number saved. Customers will see it on their Membership page.');
   }
-
   async function confirmRequest(request) {
     const name = request.profiles?.full_name || 'this customer';
     if (
@@ -89,7 +86,6 @@ export default function AdminPaymentRequests() {
       )
     )
       return;
-
     setBusyId(request.id);
     setError('');
     setNotice('');
@@ -102,7 +98,6 @@ export default function AdminPaymentRequests() {
     setNotice(`Membership activated for ${name}.`);
     await loadRequests();
   }
-
   async function submitReject(request) {
     setBusyId(request.id);
     setError('');
@@ -118,9 +113,7 @@ export default function AdminPaymentRequests() {
     setNotice('Request rejected. The customer can see the reason.');
     await loadRequests();
   }
-
   const numberChanged = numberDraft.trim() !== bkashNumber;
-
   return (
     <div className="ap-page">
       <div className="ap-head">
@@ -136,7 +129,6 @@ export default function AdminPaymentRequests() {
         </Alert>
       )}
       {notice && <Alert type="success">{notice}</Alert>}
-
       {/* bKash number setting */}
       <section className="ap-card">
         <h2 className="ap-card__title">Payment number</h2>
@@ -234,7 +226,6 @@ export default function AdminPaymentRequests() {
     </div>
   );
 }
-
 function RequestRows({
   request: r,
   busy,

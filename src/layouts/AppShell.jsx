@@ -6,7 +6,7 @@ import Footer from './Footer.jsx';
 import '../styles/theme.css';
 import './AppShell.css';
 
-export default function AppShell({ area, navItems, disableNavigation = false }) {
+export default function AppShell({ area, navItems }) {
   const { profile, signOut } = useAuth();
   const navigate = useNavigate();
   const [signOutError, setSignOutError] = useState(null);
@@ -24,14 +24,7 @@ export default function AppShell({ area, navItems, disableNavigation = false }) 
   // NavLink adds the "active" class automatically when the route matches.
   const renderLinks = () =>
     navItems.map((item) => (
-      <NavLink
-        key={item.to}
-        to={item.to}
-        end={item.end}
-        className="ft-navlink"
-        aria-disabled={disableNavigation || undefined}
-        onClick={disableNavigation ? (event) => event.preventDefault() : undefined}
-      >
+      <NavLink key={item.to} to={item.to} end={item.end} className="ft-navlink">
         {item.label}
       </NavLink>
     ));
@@ -56,6 +49,9 @@ export default function AppShell({ area, navItems, disableNavigation = false }) 
 
         <div className="ft-sidebar__footer">
           <p className="ft-sidebar__user">{profile?.full_name}</p>
+          <button type="button" onClick={() => navigate('/')} className="ft-signout">
+            Home
+          </button>
           <button type="button" onClick={handleSignOut} className="ft-signout">
             Sign out
           </button>
@@ -75,6 +71,9 @@ export default function AppShell({ area, navItems, disableNavigation = false }) 
               </div>
               <p className="ft-area">{area}</p>
             </div>
+            <button type="button" onClick={() => navigate('/')} className="ft-signout">
+              Home
+            </button>
             <button type="button" onClick={handleSignOut} className="ft-signout">
               Sign out
             </button>

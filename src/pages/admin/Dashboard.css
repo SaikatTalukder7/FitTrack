@@ -483,6 +483,7 @@
 /* ---------- Reduced motion: keep colour changes, remove zoom and slide ---------- */
 
 @media (prefers-reduced-motion: reduce) {
+
   .ad-pill:hover,
   .ad-pill:active,
   .ad-btn-outline:hover:not(:disabled),

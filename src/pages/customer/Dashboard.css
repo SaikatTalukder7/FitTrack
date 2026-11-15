@@ -148,7 +148,7 @@
   color: #f1f5f9;
 }
 
-.cx-focus__row + .cx-focus__row {
+.cx-focus__row+.cx-focus__row {
   margin-top: 0.7rem;
 }
 
@@ -405,7 +405,7 @@
   transition: transform var(--cx-ease), border-color var(--cx-ease), background-color var(--cx-ease);
 }
 
-.cx-ex + .cx-ex {
+.cx-ex+.cx-ex {
   margin-top: 0.75rem;
 }
 
@@ -601,7 +601,7 @@
   transition: background-color var(--cx-ease);
 }
 
-.cx-session + .cx-session {
+.cx-session+.cx-session {
   border-top: 1px solid var(--cx-line-soft);
 }
 
@@ -748,6 +748,7 @@
 /* ---------- Reduced motion: keep colour changes, remove zoom and slide ---------- */
 
 @media (prefers-reduced-motion: reduce) {
+
   .cx-btn:hover,
   .cx-btn:active,
   .cx-stat:hover,
