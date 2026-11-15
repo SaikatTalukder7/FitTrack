@@ -11,6 +11,7 @@
   --pf-subtle: var(--ft-text-muted);
   --pf-line: var(--ft-border);
   --pf-edge: var(--ft-border);
+  --pf-danger: #dc2626;
   --pf-card-bg: linear-gradient(180deg, var(--ft-surface) 0%, var(--ft-page) 100%);
   --pf-ease: 0.25s ease;
 
@@ -206,14 +207,14 @@
 
 .pf-btn--danger {
   background: var(--ft-surface);
-  border-color: var(--ft-danger);
-  color: var(--ft-danger);
+  border-color: var(--pf-danger);
+  color: var(--pf-danger);
   box-shadow: none;
 }
 
 .pf-btn--danger:hover:not(:disabled) {
-  background: var(--ft-danger);
-  border-color: var(--ft-danger);
+  background: var(--pf-danger);
+  border-color: var(--pf-danger);
   color: var(--ft-surface);
 }
 
@@ -269,7 +270,7 @@
 }
 
 .pf-page .ft-field__error {
-  color: var(--ft-danger);
+  color: var(--pf-danger);
   font-size: 0.8rem;
   font-weight: 600;
 }

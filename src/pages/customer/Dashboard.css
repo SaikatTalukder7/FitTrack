@@ -771,6 +771,14 @@
   object-fit: cover;
 }
 
+.cx-hero__avatar-placeholder {
+  width: 172px;
+  height: 236px;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.356);
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .cx-hero__identity {
   display: flex;
   align-items: center;
@@ -784,6 +792,11 @@
 
 @media (max-width: 639px) {
   .cx-hero img.cx-hero__avatar {
+    width: 80px;
+    height: 100px;
+  }
+
+  .cx-hero__avatar-placeholder {
     width: 80px;
     height: 100px;
   }

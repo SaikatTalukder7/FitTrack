@@ -7,7 +7,7 @@ import { getActiveRoutine, listSessions } from '../../services/workoutService.js
 import { getMyMembership } from '../../services/membershipService.js';
 import { getAttendanceSummary } from '../../services/attendanceService.js';
 import { listMyPayments } from '../../services/paymentService.js';
-import { getMyAvatarUrl, getMyProfile } from '../../services/profileService.js';
+import { getMyAvatarUrl } from '../../services/profileService.js';
 import './Dashboard.css';
 
 function formatDate(value, options = { month: 'short', day: 'numeric', year: 'numeric' }) {
@@ -69,13 +69,12 @@ export default function Dashboard() {
 
   useEffect(() => {
     let cancelled = false;
-    setAvatarUrl(null);
     async function loadAvatar() {
-      if (!customerId) return;
-      const latestProfile = await getMyProfile();
-      if (cancelled) return;
-      const latestAvatarPath = latestProfile.error ? avatarPath : latestProfile.data?.avatar_path;
-      const result = await getMyAvatarUrl(latestAvatarPath);
+      if (!customerId || !avatarPath) {
+        setAvatarUrl(null);
+        return;
+      }
+      const result = await getMyAvatarUrl(avatarPath);
       if (!cancelled) setAvatarUrl(result.error ? null : result.data);
     }
     loadAvatar();
@@ -155,6 +154,7 @@ export default function Dashboard() {
 
         <div className="cx-hero__grid">
           <div className="cx-hero__identity">
+            {avatarPath && !avatarUrl && <div className="cx-hero__avatar-placeholder" aria-hidden="true" />}
             {avatarUrl && (
               <img
                 src={avatarUrl}

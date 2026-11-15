@@ -52,7 +52,7 @@ export default function AppShell({ area, navItems }) {
           <button type="button" onClick={() => navigate('/')} className="ft-signout">
             Home
           </button>
-          <button type="button" onClick={handleSignOut} className="ft-signout">
+          <button type="button" onClick={handleSignOut} className="ft-signout ft-signout--danger">
             Sign out
           </button>
         </div>
@@ -74,7 +74,7 @@ export default function AppShell({ area, navItems }) {
             <button type="button" onClick={() => navigate('/')} className="ft-signout">
               Home
             </button>
-            <button type="button" onClick={handleSignOut} className="ft-signout">
+            <button type="button" onClick={handleSignOut} className="ft-signout ft-signout--danger">
               Sign out
             </button>
           </div>

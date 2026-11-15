@@ -171,6 +171,7 @@
 /* Sign out: outline pill, fills on hover */
 
 .ft-signout {
+  --ft-signout-danger: #dc2626;
   padding: 0.45rem 0.95rem;
   border: 1px solid var(--ft-shell-brand);
   border-radius: 9999px;
@@ -192,6 +193,17 @@
   background: var(--ft-shell-brand);
   color: var(--ft-surface);
   transform: scale(1.04);
+}
+
+.ft-signout--danger {
+  border-color: var(--ft-signout-danger);
+  color: var(--ft-signout-danger);
+}
+
+.ft-signout--danger:hover {
+  background: var(--ft-signout-danger);
+  border-color: var(--ft-signout-danger);
+  color: var(--ft-surface);
 }
 
 .ft-signout:active {
