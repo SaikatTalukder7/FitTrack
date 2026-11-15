@@ -7,6 +7,7 @@ import { getActiveRoutine, listSessions } from '../../services/workoutService.js
 import { getMyMembership } from '../../services/membershipService.js';
 import { getAttendanceSummary } from '../../services/attendanceService.js';
 import { listMyPayments } from '../../services/paymentService.js';
+import { getMyAvatarUrl, getMyProfile } from '../../services/profileService.js';
 import './Dashboard.css';
 
 function formatDate(value, options = { month: 'short', day: 'numeric', year: 'numeric' }) {
@@ -63,6 +64,25 @@ function SectionHeading({ title, subtitle, action, to }) {
 export default function Dashboard() {
   const { profile, session } = useAuth();
   const customerId = profile?.id || session?.user?.id;
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const avatarPath = profile?.avatar_path ?? null;
+
+  useEffect(() => {
+    let cancelled = false;
+    setAvatarUrl(null);
+    async function loadAvatar() {
+      if (!customerId) return;
+      const latestProfile = await getMyProfile();
+      if (cancelled) return;
+      const latestAvatarPath = latestProfile.error ? avatarPath : latestProfile.data?.avatar_path;
+      const result = await getMyAvatarUrl(latestAvatarPath);
+      if (!cancelled) setAvatarUrl(result.error ? null : result.data);
+    }
+    loadAvatar();
+    return () => {
+      cancelled = true;
+    };
+  }, [customerId, avatarPath]);
   const [dashboard, setDashboard] = useState({
     routine: null,
     sessions: [],
@@ -134,7 +154,16 @@ export default function Dashboard() {
         <span className="cx-hero__glow" aria-hidden="true" />
 
         <div className="cx-hero__grid">
-          <div>
+          <div className="cx-hero__identity">
+            {avatarUrl && (
+              <img
+                src={avatarUrl}
+                alt="Your profile photo"
+                className="cx-hero__avatar"
+                onError={() => setAvatarUrl(null)}
+              />
+            )}
+            <div className="cx-hero__details">
             <p className="cx-hero__date">{greetingDate}</p>
             <h1 className="cx-hero__title">Welcome back, {firstName}!</h1>
             <p className="cx-hero__text">
@@ -148,6 +177,7 @@ export default function Dashboard() {
                 View my routine
               </Link>
             </div>
+          </div>
           </div>
           <div className="cx-focus">
             <div className="cx-focus__top">

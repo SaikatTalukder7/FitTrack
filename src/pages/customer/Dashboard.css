@@ -761,3 +761,30 @@
     transform: none;
   }
 }
+.cx-hero img.cx-hero__avatar {
+  display: block;
+  width: 172px;
+  height: 236px;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.356);
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.cx-hero__identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  min-width: 0;
+}
+
+.cx-hero__details {
+  min-width: 0;
+}
+
+@media (max-width: 639px) {
+  .cx-hero img.cx-hero__avatar {
+    width: 80px;
+    height: 100px;
+  }
+}
