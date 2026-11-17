@@ -144,7 +144,7 @@ export default function WorkoutSession() {
           </p>
         </div>
         {activeSession ? (
-          <button className="ws-btn ws-btn--danger" type="button" disabled={busy} onClick={finishSession}>
+          <button className="ft-signout" type="button" disabled={busy} onClick={finishSession}>
             {busy ? 'Finishing…' : 'Finish workout'}
           </button>
         ) : (
